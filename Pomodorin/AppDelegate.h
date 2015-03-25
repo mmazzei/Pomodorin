@@ -2,7 +2,7 @@
 //  AppDelegate.h
 //  Pomodorin
 //
-//  Created by Matias Mazzei on 3/25/15.
+//  Created by Matias Mazzei on 3/24/15.
 //  Copyright (c) 2015 mmazzei. All rights reserved.
 //
 
@@ -10,6 +10,10 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
+
+- (void) switchToMainView;
+- (void) switchToPomodoringView;
+- (void) switchToDecideNextStepView;
 
 @end
 

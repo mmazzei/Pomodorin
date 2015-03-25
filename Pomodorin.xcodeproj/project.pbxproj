@@ -12,6 +12,19 @@
 		9A597C3F1AC32F41002648A6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A597C3E1AC32F41002648A6 /* Images.xcassets */; };
 		9A597C421AC32F41002648A6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A597C401AC32F41002648A6 /* MainMenu.xib */; };
 		9A597C4E1AC32F41002648A6 /* PomodorinTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A597C4D1AC32F41002648A6 /* PomodorinTests.m */; };
+		9A597C5E1AC32FC5002648A6 /* Break.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A597C5B1AC32FC5002648A6 /* Break.m */; };
+		9A597C5F1AC32FC5002648A6 /* Configs.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A597C5D1AC32FC5002648A6 /* Configs.m */; };
+		9A597C6A1AC32FEC002648A6 /* Pomodoro.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A597C611AC32FEC002648A6 /* Pomodoro.m */; };
+		9A597C6B1AC32FEC002648A6 /* Record.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A597C631AC32FEC002648A6 /* Record.m */; };
+		9A597C6C1AC32FEC002648A6 /* Summary.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A597C651AC32FEC002648A6 /* Summary.m */; };
+		9A597C6D1AC32FEC002648A6 /* TimeBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A597C671AC32FEC002648A6 /* TimeBox.m */; };
+		9A597C6E1AC32FEC002648A6 /* TodayStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A597C691AC32FEC002648A6 /* TodayStatus.m */; };
+		9A597C721AC3300E002648A6 /* DecideNextStepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A597C701AC3300E002648A6 /* DecideNextStepViewController.m */; };
+		9A597C731AC3300E002648A6 /* DecideNextStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A597C711AC3300E002648A6 /* DecideNextStepViewController.xib */; };
+		9A597C7A1AC3301D002648A6 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A597C751AC3301D002648A6 /* MainViewController.m */; };
+		9A597C7B1AC3301D002648A6 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A597C761AC3301D002648A6 /* MainViewController.xib */; };
+		9A597C7C1AC3301D002648A6 /* PomodoringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A597C781AC3301D002648A6 /* PomodoringViewController.m */; };
+		9A597C7D1AC3301D002648A6 /* PomodoringViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A597C791AC3301D002648A6 /* PomodoringViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +48,29 @@
 		9A597C471AC32F41002648A6 /* PomodorinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PomodorinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A597C4C1AC32F41002648A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A597C4D1AC32F41002648A6 /* PomodorinTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PomodorinTests.m; sourceTree = "<group>"; };
+		9A597C5A1AC32FC5002648A6 /* Break.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Break.h; sourceTree = "<group>"; };
+		9A597C5B1AC32FC5002648A6 /* Break.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Break.m; sourceTree = "<group>"; };
+		9A597C5C1AC32FC5002648A6 /* Configs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Configs.h; sourceTree = "<group>"; };
+		9A597C5D1AC32FC5002648A6 /* Configs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Configs.m; sourceTree = "<group>"; };
+		9A597C601AC32FEC002648A6 /* Pomodoro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pomodoro.h; sourceTree = "<group>"; };
+		9A597C611AC32FEC002648A6 /* Pomodoro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pomodoro.m; sourceTree = "<group>"; };
+		9A597C621AC32FEC002648A6 /* Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Record.h; sourceTree = "<group>"; };
+		9A597C631AC32FEC002648A6 /* Record.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Record.m; sourceTree = "<group>"; };
+		9A597C641AC32FEC002648A6 /* Summary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Summary.h; sourceTree = "<group>"; };
+		9A597C651AC32FEC002648A6 /* Summary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Summary.m; sourceTree = "<group>"; };
+		9A597C661AC32FEC002648A6 /* TimeBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeBox.h; sourceTree = "<group>"; };
+		9A597C671AC32FEC002648A6 /* TimeBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeBox.m; sourceTree = "<group>"; };
+		9A597C681AC32FEC002648A6 /* TodayStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayStatus.h; sourceTree = "<group>"; };
+		9A597C691AC32FEC002648A6 /* TodayStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayStatus.m; sourceTree = "<group>"; };
+		9A597C6F1AC3300E002648A6 /* DecideNextStepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecideNextStepViewController.h; sourceTree = "<group>"; };
+		9A597C701AC3300E002648A6 /* DecideNextStepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecideNextStepViewController.m; sourceTree = "<group>"; };
+		9A597C711AC3300E002648A6 /* DecideNextStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecideNextStepViewController.xib; sourceTree = "<group>"; };
+		9A597C741AC3301D002648A6 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		9A597C751AC3301D002648A6 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		9A597C761AC3301D002648A6 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		9A597C771AC3301D002648A6 /* PomodoringViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PomodoringViewController.h; sourceTree = "<group>"; };
+		9A597C781AC3301D002648A6 /* PomodoringViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PomodoringViewController.m; sourceTree = "<group>"; };
+		9A597C791AC3301D002648A6 /* PomodoringViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PomodoringViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +112,8 @@
 		9A597C361AC32F41002648A6 /* Pomodorin */ = {
 			isa = PBXGroup;
 			children = (
+				9A597C591AC32F80002648A6 /* View */,
+				9A597C571AC32F6F002648A6 /* Model */,
 				9A597C391AC32F41002648A6 /* AppDelegate.h */,
 				9A597C3A1AC32F41002648A6 /* AppDelegate.m */,
 				9A597C3E1AC32F41002648A6 /* Images.xcassets */,
@@ -109,6 +147,43 @@
 				9A597C4C1AC32F41002648A6 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9A597C571AC32F6F002648A6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9A597C601AC32FEC002648A6 /* Pomodoro.h */,
+				9A597C611AC32FEC002648A6 /* Pomodoro.m */,
+				9A597C621AC32FEC002648A6 /* Record.h */,
+				9A597C631AC32FEC002648A6 /* Record.m */,
+				9A597C641AC32FEC002648A6 /* Summary.h */,
+				9A597C651AC32FEC002648A6 /* Summary.m */,
+				9A597C661AC32FEC002648A6 /* TimeBox.h */,
+				9A597C671AC32FEC002648A6 /* TimeBox.m */,
+				9A597C681AC32FEC002648A6 /* TodayStatus.h */,
+				9A597C691AC32FEC002648A6 /* TodayStatus.m */,
+				9A597C5A1AC32FC5002648A6 /* Break.h */,
+				9A597C5B1AC32FC5002648A6 /* Break.m */,
+				9A597C5C1AC32FC5002648A6 /* Configs.h */,
+				9A597C5D1AC32FC5002648A6 /* Configs.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		9A597C591AC32F80002648A6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9A597C741AC3301D002648A6 /* MainViewController.h */,
+				9A597C751AC3301D002648A6 /* MainViewController.m */,
+				9A597C761AC3301D002648A6 /* MainViewController.xib */,
+				9A597C771AC3301D002648A6 /* PomodoringViewController.h */,
+				9A597C781AC3301D002648A6 /* PomodoringViewController.m */,
+				9A597C791AC3301D002648A6 /* PomodoringViewController.xib */,
+				9A597C6F1AC3300E002648A6 /* DecideNextStepViewController.h */,
+				9A597C701AC3300E002648A6 /* DecideNextStepViewController.m */,
+				9A597C711AC3300E002648A6 /* DecideNextStepViewController.xib */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,7 +267,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A597C3F1AC32F41002648A6 /* Images.xcassets in Resources */,
+				9A597C731AC3300E002648A6 /* DecideNextStepViewController.xib in Resources */,
 				9A597C421AC32F41002648A6 /* MainMenu.xib in Resources */,
+				9A597C7D1AC3301D002648A6 /* PomodoringViewController.xib in Resources */,
+				9A597C7B1AC3301D002648A6 /* MainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,8 +288,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A597C7A1AC3301D002648A6 /* MainViewController.m in Sources */,
+				9A597C6C1AC32FEC002648A6 /* Summary.m in Sources */,
+				9A597C6E1AC32FEC002648A6 /* TodayStatus.m in Sources */,
+				9A597C6A1AC32FEC002648A6 /* Pomodoro.m in Sources */,
+				9A597C5E1AC32FC5002648A6 /* Break.m in Sources */,
+				9A597C5F1AC32FC5002648A6 /* Configs.m in Sources */,
+				9A597C7C1AC3301D002648A6 /* PomodoringViewController.m in Sources */,
+				9A597C6D1AC32FEC002648A6 /* TimeBox.m in Sources */,
 				9A597C3D1AC32F41002648A6 /* main.m in Sources */,
+				9A597C6B1AC32FEC002648A6 /* Record.m in Sources */,
 				9A597C3B1AC32F41002648A6 /* AppDelegate.m in Sources */,
+				9A597C721AC3300E002648A6 /* DecideNextStepViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
