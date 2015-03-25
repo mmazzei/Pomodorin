@@ -1,0 +1,413 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9A597C3B1AC32F41002648A6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A597C3A1AC32F41002648A6 /* AppDelegate.m */; };
+		9A597C3D1AC32F41002648A6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A597C3C1AC32F41002648A6 /* main.m */; };
+		9A597C3F1AC32F41002648A6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A597C3E1AC32F41002648A6 /* Images.xcassets */; };
+		9A597C421AC32F41002648A6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A597C401AC32F41002648A6 /* MainMenu.xib */; };
+		9A597C4E1AC32F41002648A6 /* PomodorinTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A597C4D1AC32F41002648A6 /* PomodorinTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9A597C481AC32F41002648A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A597C2C1AC32F41002648A6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9A597C331AC32F41002648A6;
+			remoteInfo = Pomodorin;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9A597C341AC32F41002648A6 /* Pomodorin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomodorin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A597C381AC32F41002648A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A597C391AC32F41002648A6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9A597C3A1AC32F41002648A6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9A597C3C1AC32F41002648A6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9A597C3E1AC32F41002648A6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9A597C411AC32F41002648A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		9A597C471AC32F41002648A6 /* PomodorinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PomodorinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A597C4C1AC32F41002648A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A597C4D1AC32F41002648A6 /* PomodorinTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PomodorinTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9A597C311AC32F41002648A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A597C441AC32F41002648A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9A597C2B1AC32F41002648A6 = {
+			isa = PBXGroup;
+			children = (
+				9A597C361AC32F41002648A6 /* Pomodorin */,
+				9A597C4A1AC32F41002648A6 /* PomodorinTests */,
+				9A597C351AC32F41002648A6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9A597C351AC32F41002648A6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9A597C341AC32F41002648A6 /* Pomodorin.app */,
+				9A597C471AC32F41002648A6 /* PomodorinTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9A597C361AC32F41002648A6 /* Pomodorin */ = {
+			isa = PBXGroup;
+			children = (
+				9A597C391AC32F41002648A6 /* AppDelegate.h */,
+				9A597C3A1AC32F41002648A6 /* AppDelegate.m */,
+				9A597C3E1AC32F41002648A6 /* Images.xcassets */,
+				9A597C401AC32F41002648A6 /* MainMenu.xib */,
+				9A597C371AC32F41002648A6 /* Supporting Files */,
+			);
+			path = Pomodorin;
+			sourceTree = "<group>";
+		};
+		9A597C371AC32F41002648A6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9A597C381AC32F41002648A6 /* Info.plist */,
+				9A597C3C1AC32F41002648A6 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9A597C4A1AC32F41002648A6 /* PomodorinTests */ = {
+			isa = PBXGroup;
+			children = (
+				9A597C4D1AC32F41002648A6 /* PomodorinTests.m */,
+				9A597C4B1AC32F41002648A6 /* Supporting Files */,
+			);
+			path = PomodorinTests;
+			sourceTree = "<group>";
+		};
+		9A597C4B1AC32F41002648A6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9A597C4C1AC32F41002648A6 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9A597C331AC32F41002648A6 /* Pomodorin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9A597C511AC32F41002648A6 /* Build configuration list for PBXNativeTarget "Pomodorin" */;
+			buildPhases = (
+				9A597C301AC32F41002648A6 /* Sources */,
+				9A597C311AC32F41002648A6 /* Frameworks */,
+				9A597C321AC32F41002648A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Pomodorin;
+			productName = Pomodorin;
+			productReference = 9A597C341AC32F41002648A6 /* Pomodorin.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9A597C461AC32F41002648A6 /* PomodorinTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9A597C541AC32F41002648A6 /* Build configuration list for PBXNativeTarget "PomodorinTests" */;
+			buildPhases = (
+				9A597C431AC32F41002648A6 /* Sources */,
+				9A597C441AC32F41002648A6 /* Frameworks */,
+				9A597C451AC32F41002648A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9A597C491AC32F41002648A6 /* PBXTargetDependency */,
+			);
+			name = PomodorinTests;
+			productName = PomodorinTests;
+			productReference = 9A597C471AC32F41002648A6 /* PomodorinTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9A597C2C1AC32F41002648A6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = mmazzei;
+				TargetAttributes = {
+					9A597C331AC32F41002648A6 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					9A597C461AC32F41002648A6 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 9A597C331AC32F41002648A6;
+					};
+				};
+			};
+			buildConfigurationList = 9A597C2F1AC32F41002648A6 /* Build configuration list for PBXProject "Pomodorin" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9A597C2B1AC32F41002648A6;
+			productRefGroup = 9A597C351AC32F41002648A6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9A597C331AC32F41002648A6 /* Pomodorin */,
+				9A597C461AC32F41002648A6 /* PomodorinTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9A597C321AC32F41002648A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A597C3F1AC32F41002648A6 /* Images.xcassets in Resources */,
+				9A597C421AC32F41002648A6 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A597C451AC32F41002648A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9A597C301AC32F41002648A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A597C3D1AC32F41002648A6 /* main.m in Sources */,
+				9A597C3B1AC32F41002648A6 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A597C431AC32F41002648A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A597C4E1AC32F41002648A6 /* PomodorinTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9A597C491AC32F41002648A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9A597C331AC32F41002648A6 /* Pomodorin */;
+			targetProxy = 9A597C481AC32F41002648A6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9A597C401AC32F41002648A6 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9A597C411AC32F41002648A6 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9A597C4F1AC32F41002648A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		9A597C501AC32F41002648A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		9A597C521AC32F41002648A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Pomodorin/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9A597C531AC32F41002648A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Pomodorin/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		9A597C551AC32F41002648A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PomodorinTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pomodorin.app/Contents/MacOS/Pomodorin";
+			};
+			name = Debug;
+		};
+		9A597C561AC32F41002648A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PomodorinTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pomodorin.app/Contents/MacOS/Pomodorin";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9A597C2F1AC32F41002648A6 /* Build configuration list for PBXProject "Pomodorin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A597C4F1AC32F41002648A6 /* Debug */,
+				9A597C501AC32F41002648A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9A597C511AC32F41002648A6 /* Build configuration list for PBXNativeTarget "Pomodorin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A597C521AC32F41002648A6 /* Debug */,
+				9A597C531AC32F41002648A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9A597C541AC32F41002648A6 /* Build configuration list for PBXNativeTarget "PomodorinTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A597C551AC32F41002648A6 /* Debug */,
+				9A597C561AC32F41002648A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9A597C2C1AC32F41002648A6 /* Project object */;
+}
