@@ -90,7 +90,7 @@
                                             <rect key="frame" x="156" y="17" width="32" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="inline" title="0" bezelStyle="inline" alignment="center" controlSize="mini" borderStyle="border" inset="2" id="2Lq-cl-scs">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <behavior key="behavior" lightByContents="YES"/>
                                                 <font key="font" metaFont="smallSystemBold"/>
                                             </buttonCell>
                                         </button>
@@ -98,7 +98,7 @@
                                             <rect key="frame" x="155" y="50" width="32" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="inline" title="0" bezelStyle="inline" alignment="center" controlSize="mini" borderStyle="border" inset="2" id="Pra-qb-bBG">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <behavior key="behavior" lightByContents="YES"/>
                                                 <font key="font" metaFont="smallSystemBold"/>
                                             </buttonCell>
                                         </button>
