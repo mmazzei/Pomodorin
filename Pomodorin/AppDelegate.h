@@ -14,6 +14,7 @@
 - (void) switchToMainView;
 - (void) switchToPomodoringView;
 - (void) switchToDecideNextStepView;
+- (void) switchToRecordViewController;
 
 @end
 

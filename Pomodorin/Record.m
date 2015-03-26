@@ -24,6 +24,20 @@
     return self;
 }
 
+-(id) initWithCoder:(NSCoder *)decoder {
+    NSLog(@"Initing Record with decoder");
+    self = [super init];
+    if (self) {
+        _record = [decoder decodeObjectForKey:@"record"];
+    }
+    return self;
+}
+
+-(void) encodeWithCoder:(NSCoder *)coder {
+    NSLog(@"Encoding Record with coder");
+    [coder encodeObject:self.record forKey:@"record"];
+}
+
 // Adds the pomodoro to the summarized data for the given day.
 // If there are no summarized data yet, initializes it.
 -(void) add:(Pomodoro*)pomodoro at:(NSDate*)day {
@@ -33,7 +47,7 @@
         summaryForDay = [[Summary alloc] init];
         self.record[[Record keyFor:day]] = summaryForDay;
     }
-
+    
     [summaryForDay add:pomodoro];
 }
 
@@ -46,7 +60,7 @@
 +(id) keyFor:(NSDate *)date {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-
+    
     // Use always the same locale, independently of the user choice,
     // in order to produce the same result in their different devices
     NSLocale *usLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
@@ -55,13 +69,16 @@
     return [dateFormatter stringFromDate:date];
 }
 
--(void) print {
-    NSLog(@"Record details:");
+-(NSString*) print {
+    NSMutableString* description = [NSMutableString stringWithString:@""];
+    
     NSArray* sortedKeys = [[self.record allKeys] sortedArrayUsingSelector:@selector(compare:)];
     for(NSString* key in sortedKeys) {
         Summary* summary = self.record[key];
-        NSLog(@"\t%@ -> (%lu, %lu, %lu)", key, summary.pomodoros, summary.internalInterruptions, summary.externalInterruptions);
+        [description appendFormat:@"%@ -> (%lu, %lu, %lu)\n", key, summary.pomodoros, summary.internalInterruptions, summary.externalInterruptions];
     }
+
+    return description;
 }
 
 @end

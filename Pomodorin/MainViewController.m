@@ -31,9 +31,10 @@
     [delegate switchToPomodoringView];
 }
 
-- (IBAction)seeStatistics:(id)sender {
-    NSLog(@"See statistics button pressed");
-    [self.model.record print];
+- (IBAction)seeSummary:(id)sender {
+    NSLog(@"See summary button pressed");
+    id delegate = [NSApp delegate];
+    [delegate switchToRecordViewController];
 }
 
 @end

@@ -11,7 +11,8 @@
 
 // A summary containing the info about how many
 // pomodoros were done, and their interruptions.
-@interface Summary : NSObject
+@interface Summary : NSObject <NSCoding>
+
 @property (assign) NSUInteger pomodoros;
 @property (assign) NSUInteger internalInterruptions;
 @property (assign) NSUInteger externalInterruptions;

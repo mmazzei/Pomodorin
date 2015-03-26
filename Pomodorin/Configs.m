@@ -8,6 +8,6 @@
 
 #import "Configs.h"
 
-const unsigned int POMODORO_DURATION = 15;
+const unsigned int POMODORO_DURATION = 25*60;
 const unsigned int SHORT_BREAK_DURATION = 5;
 const unsigned int LONG_BREAK_DURATION = 10;

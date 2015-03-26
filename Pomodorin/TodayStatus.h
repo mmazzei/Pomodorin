@@ -12,7 +12,7 @@
 
 // This class behaves mainly as an app context object
 // Should be renamed to reflect that and do not confound with "today only" status
-@interface TodayStatus : NSObject
+@interface TodayStatus : NSObject <NSCoding>
 @property (strong) TimeBox* currentTask;
 
 -(Record*) record;

@@ -11,6 +11,23 @@
 
 @implementation Pomodoro
 
+-(id) initWithCoder:(NSCoder *)decoder {
+    NSLog(@"Initing Pomodoro with decoder");
+    self = [super initWithCoder:decoder];
+    if (self) {
+        _internalInterruptions = [decoder decodeIntForKey:@"internalInterruptions"];
+        _externalInterruptions = [decoder decodeIntForKey:@"externalInterruptions"];
+    }
+    return self;
+}
+
+-(void) encodeWithCoder:(NSCoder *)coder {
+    NSLog(@"Encoding Pomodoro with coder");
+    [super encodeWithCoder:coder];
+    [coder encodeInt:self.internalInterruptions forKey:@"internalInterruptions"];
+    [coder encodeInt:self.externalInterruptions forKey:@"externalInterruptions"];
+}
+
 -(id) init {
     // Expires on X minutes from now
     NSDate* expiresOn = [[NSDate alloc] initWithTimeIntervalSinceNow:(POMODORO_DURATION)];

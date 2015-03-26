@@ -11,6 +11,24 @@
 
 @implementation Summary
 
+-(id) initWithCoder:(NSCoder *)decoder {
+    NSLog(@"Initing Summary with decoder");
+    self = [super init];
+    if (self) {
+        _pomodoros = [decoder decodeIntegerForKey:@"pomodoros"];
+        _internalInterruptions = [decoder decodeIntegerForKey:@"internalInterruptions"];
+        _externalInterruptions = [decoder decodeIntegerForKey:@"externalInterruptions"];
+    }
+    return self;
+}
+
+-(void) encodeWithCoder:(NSCoder *)coder {
+    NSLog(@"Encoding Summary with coder");
+    [coder encodeInteger:self.pomodoros forKey:@"pomodoros"];
+    [coder encodeInteger:self.internalInterruptions forKey:@"internalInterruptions"];
+    [coder encodeInteger:self.externalInterruptions forKey:@"externalInterruptions"];
+}
+
 -(void) add:(Pomodoro*) pomodoro {
     self.pomodoros ++;
     self.internalInterruptions += pomodoro.internalInterruptions;

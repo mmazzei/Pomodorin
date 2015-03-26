@@ -56,7 +56,9 @@
 
 - (IBAction)seeSummary:(id)sender {
     NSLog(@"See summary button pressed");
-    [self.model.record print];
+    
+    id delegate = [NSApp delegate];
+    [delegate switchToRecordViewController];
 }
 
 @end

@@ -22,33 +22,27 @@
     self = [super init];
     
     if (self) {
-        // TODO - Load record from disk?
         _theRecord = [[Record alloc] init];
-        
-        NSLog(@"Loading sample data...");
-        NSDate* twoDaysAgo = [NSDate dateWithTimeIntervalSinceNow:-(60*60*24*2)];
-        Pomodoro* sample1 = [[Pomodoro alloc] init];
-        sample1.internalInterruptions = 3;
-        sample1.externalInterruptions = 1;
-        Pomodoro* sample2 = [[Pomodoro alloc] init];
-        sample2.internalInterruptions = 2;
-        sample2.externalInterruptions = 2;
-        
-        NSDate* oneDaysAgo = [NSDate dateWithTimeIntervalSinceNow:-(60*60*24*1)];
-        Pomodoro* sample3 = [[Pomodoro alloc] init];
-        sample3.internalInterruptions = 15;
-        Pomodoro* sample4 = [[Pomodoro alloc] init];
-        sample4.externalInterruptions = 14;
-
-    
-        [_theRecord add:sample1 at:twoDaysAgo];
-        [_theRecord add:sample2 at:twoDaysAgo];
-        [_theRecord add:sample3 at:oneDaysAgo];
-        [_theRecord add:sample4 at:oneDaysAgo];
-        NSLog(@"Sample data loaded.");
     }
     
     return self;
+}
+
+-(id) initWithCoder:(NSCoder *)decoder {
+    NSLog(@"Initing TodayStatus with decoder");
+    self = [super init];
+    if (self) {
+        _theRecord = [decoder decodeObjectForKey:@"record"];
+        _currentTask = [decoder decodeObjectForKey:@"currentTask"];
+    }
+    
+    return self;
+}
+
+-(void) encodeWithCoder:(NSCoder *)coder {
+    NSLog(@"Encoding TodayStatus with coder");
+    [coder encodeObject:self.record forKey:@"record"];
+    [coder encodeObject:self.currentTask forKey:@"currentTask"];
 }
 
 -(Record*) record {

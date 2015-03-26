@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PomodoringViewController">
             <connections>
-                <outlet property="pomodoroTypeLabel" destination="lYz-fk-xew" id="fhR-6h-ohR"/>
-                <outlet property="summaryLabel" destination="ecP-j2-vnj" id="wxb-9l-yEk"/>
+                <outlet property="currentTaskImage" destination="2FJ-dC-Iyl" id="SAE-Zg-h3w"/>
+                <outlet property="externalInterruptionsLabel" destination="K90-Za-qwL" id="8J4-XM-xnj"/>
+                <outlet property="internalInterruptionsLabel" destination="fvq-R9-d3Y" id="8I1-yZ-2L4"/>
+                <outlet property="interruptionsBox" destination="zdn-bb-H0d" id="Ig6-vT-Cxe"/>
                 <outlet property="timerLabel" destination="WEW-g2-4If" id="MH9-PA-JMI"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -15,48 +17,23 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <rect key="frame" x="0.0" y="0.0" width="317" height="388"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SIE-mg-6Ln">
-                    <rect key="frame" x="18" y="54" width="228" height="198"/>
-                    <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" id="N7z-Zn-qwu">
-                        <font key="font" metaFont="system"/>
-                        <string key="title">This is the "Pomodoring" screen. From here, the user can:   * See the timer   * Stop pomodoring   * Enable/disable automatic mode   * Go to the "today summary" page   * Discard current pomodoro</string>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <button identifier="stopPomodoring" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lcl-nV-xlV">
-                    <rect key="frame" x="252" y="229" width="106" height="23"/>
-                    <buttonCell key="cell" type="smallSquare" title="Stop pomodoring" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" controlSize="mini" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="V4E-Br-vS6">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                <button identifier="toggleAutomaticMode" toolTip="Toggle Automatic Mode" verticalHuggingPriority="750" id="0Lf-m1-rIs">
+                    <rect key="frame" x="20" y="20" width="24" height="23"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSLockLockedTemplate" imagePosition="only" alignment="center" alternateImage="NSLockUnlockedTemplate" controlSize="mini" state="on" imageScaling="proportionallyUpOrDown" inset="2" id="2me-eB-VGu">
+                        <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
                         <font key="font" metaFont="miniSystem"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="stopPomodoring:" target="-2" id="fFM-hq-MHS"/>
-                    </connections>
-                </button>
-                <button identifier="seeSummary" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VPg-Wq-esY">
-                    <rect key="frame" x="252" y="199" width="106" height="23"/>
-                    <buttonCell key="cell" type="smallSquare" title="See summary" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" controlSize="mini" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6Wk-fn-jHI">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="miniSystem"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="seeSummary:" target="-2" id="ZBd-gq-5k5"/>
-                    </connections>
-                </button>
-                <button identifier="toggleAutomaticMode" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Lf-m1-rIs">
-                    <rect key="frame" x="252" y="142" width="106" height="23"/>
-                    <buttonCell key="cell" type="smallSquare" title="Toggle auto-mode" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" controlSize="mini" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2me-eB-VGu">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="miniSystem"/>
+                        <string key="keyEquivalent">r</string>
+                        <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                     </buttonCell>
                 </button>
-                <button identifier="discardTimebox" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HWc-qE-HKL">
-                    <rect key="frame" x="252" y="172" width="106" height="23"/>
-                    <buttonCell key="cell" type="smallSquare" title="Discard timebox" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" controlSize="mini" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CID-XU-qV2">
+                <button identifier="discardTimebox" toolTip="Discard" verticalHuggingPriority="750" id="HWc-qE-HKL">
+                    <rect key="frame" x="50" y="20" width="24" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <buttonCell key="cell" type="smallSquare" alternateTitle="Stop Current Timer" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="only" alignment="center" controlSize="mini" state="on" imageScaling="proportionallyUpOrDown" inset="2" id="CID-XU-qV2">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="miniSystem"/>
                     </buttonCell>
@@ -64,55 +41,92 @@
                         <action selector="discardTimebox:" target="-2" id="0ft-xV-0CH"/>
                     </connections>
                 </button>
-                <textField identifier="timerLabel" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WEW-g2-4If">
-                    <rect key="frame" x="364" y="148" width="38" height="12"/>
-                    <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="-" id="jQX-4e-0DJ">
-                        <font key="font" metaFont="miniSystem"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField identifier="pomodoroTypeLabel" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lYz-fk-xew">
-                    <rect key="frame" x="366" y="129" width="79" height="11"/>
-                    <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="." id="qEO-XU-8b9">
-                        <font key="font" metaFont="miniSystem"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField identifier="summaryLabel" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ecP-j2-vnj">
-                    <rect key="frame" x="366" y="110" width="38" height="11"/>
-                    <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="," id="eZv-Dh-Gc5">
-                        <font key="font" metaFont="miniSystem"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <button identifier="addInternalInterruption" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HeS-DS-Y0e">
-                    <rect key="frame" x="366" y="229" width="24" height="23"/>
-                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSIChatTheaterTemplate" imagePosition="overlaps" alignment="center" controlSize="mini" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7n7-cw-fuA">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="miniSystem"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="addInternalInterruption:" target="-2" id="jij-LI-Kmv"/>
-                    </connections>
-                </button>
-                <button identifier="addExternalInterruption" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Du2-Vk-4EG">
-                    <rect key="frame" x="393" y="229" width="24" height="23"/>
-                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSEveryone" imagePosition="overlaps" alignment="center" controlSize="mini" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="49M-SW-EBn">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="miniSystem"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="addExternalInterruption:" target="-2" id="CUw-6h-q0R"/>
-                    </connections>
-                </button>
+                <box autoresizesSubviews="NO" transparent="YES" borderType="none" titlePosition="noTitle" id="jrj-gw-MXS">
+                    <rect key="frame" x="17" y="46" width="283" height="339"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <view key="contentView">
+                        <rect key="frame" x="0.0" y="0.0" width="283" height="339"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField identifier="timerLabel" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="WEW-g2-4If">
+                                <rect key="frame" x="97" y="92" width="89" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="55:55" id="jQX-4e-0DJ">
+                                    <font key="font" size="36" name="Avenir-Light"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <box identifier="interruptionsBox" autoresizesSubviews="NO" title="Interruptions" borderType="line" titlePosition="aboveTop" id="zdn-bb-H0d">
+                                <rect key="frame" x="40" y="1" width="203" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <view key="contentView">
+                                    <rect key="frame" x="1" y="1" width="201" height="73"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button identifier="addInternalInterruption" verticalHuggingPriority="750" id="DgQ-we-gBc">
+                                            <rect key="frame" x="13" y="47" width="134" height="24"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="smallSquare" title="Log Internal" bezelStyle="smallSquare" image="NSIChatTheaterTemplate" alignment="center" controlSize="mini" state="on" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="VcA-sT-MvR">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="miniSystem"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="addInternalInterruption:" target="-2" id="FtS-2t-pxR"/>
+                                            </connections>
+                                        </button>
+                                        <button identifier="addExternalInterruption" verticalHuggingPriority="750" id="f0Y-QG-jJZ">
+                                            <rect key="frame" x="14" y="14" width="134" height="24"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="smallSquare" title="Log External" bezelStyle="smallSquare" image="NSEveryone" alignment="center" controlSize="mini" state="on" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="vq6-IP-Fit">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="miniSystem"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="addExternalInterruption:" target="-2" id="Bwx-sr-atG"/>
+                                            </connections>
+                                        </button>
+                                        <button identifier="externalInterruptionsLabel" toolTip="External Interruptions" verticalHuggingPriority="750" id="K90-Za-qwL">
+                                            <rect key="frame" x="156" y="17" width="32" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="inline" title="0" bezelStyle="inline" alignment="center" controlSize="mini" borderStyle="border" inset="2" id="2Lq-cl-scs">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="smallSystemBold"/>
+                                            </buttonCell>
+                                        </button>
+                                        <button identifier="internalInterruptionsLabel" toolTip="Internal Interruptions" verticalHuggingPriority="750" id="fvq-R9-d3Y">
+                                            <rect key="frame" x="155" y="50" width="32" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="inline" title="0" bezelStyle="inline" alignment="center" controlSize="mini" borderStyle="border" inset="2" id="Pra-qb-bBG">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="smallSystemBold"/>
+                                            </buttonCell>
+                                        </button>
+                                    </subviews>
+                                </view>
+                                <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                                <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </box>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2FJ-dC-Iyl">
+                                <rect key="frame" x="43" y="128" width="197" height="193"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="tomato" id="Ez7-Qf-q4F"/>
+                            </imageView>
+                        </subviews>
+                    </view>
+                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                    <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </box>
             </subviews>
+            <point key="canvasLocation" x="287.5" y="267"/>
         </customView>
     </objects>
     <resources>
         <image name="NSEveryone" width="32" height="32"/>
         <image name="NSIChatTheaterTemplate" width="15" height="13"/>
+        <image name="NSLockLockedTemplate" width="10" height="14"/>
+        <image name="NSLockUnlockedTemplate" width="10" height="14"/>
+        <image name="NSRemoveTemplate" width="11" height="11"/>
+        <image name="tomato" width="691" height="676"/>
     </resources>
 </document>

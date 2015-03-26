@@ -13,7 +13,7 @@
 // So, I replaced by this import:
 #import "TimeBox.h"
 
-@interface Pomodoro : TimeBox
+@interface Pomodoro : TimeBox <NSCoding>
 @property (assign) int internalInterruptions;
 @property (assign) int externalInterruptions;
 

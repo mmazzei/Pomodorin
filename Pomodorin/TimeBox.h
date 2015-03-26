@@ -11,7 +11,7 @@
 
 typedef enum { POMODORO, SHORT_BREAK, LONG_BREAK } TaskType;
 
-@interface TimeBox : NSObject
+@interface TimeBox : NSObject <NSCoding>
 @property (readonly) int type;
 @property (readonly) NSDate* expiresOn;
 

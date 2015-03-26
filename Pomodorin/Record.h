@@ -11,11 +11,11 @@
 @class Pomodoro;
 
 // Contains the summary day by day
-@interface Record : NSObject
+@interface Record : NSObject <NSCoding>
 @property (strong, readonly) NSMutableDictionary* record;
 
 -(void) add:(Pomodoro*)pomodoro at:(NSDate*)day;
 -(Summary*) summaryAt:(NSDate*)day;
 
--(void) print;
+-(NSString*) print;
 @end
