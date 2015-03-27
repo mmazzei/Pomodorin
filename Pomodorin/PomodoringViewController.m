@@ -17,6 +17,7 @@
 
 @interface PomodoringViewController ()
 @property (strong) NSTimer* refreshStatusTimer;
+@property (strong) NSUserNotification* scheduledNotification;
 
 @property (weak) IBOutlet NSTextField *timerLabel;
 @property (weak) IBOutlet NSImageView *currentTaskImage;
@@ -50,6 +51,7 @@
     }
     
     [self startTimer];
+    [self scheduleNotificationForTheEndOfCurrentTask];
 }
 
 - (void) viewDidDisappear {
@@ -94,23 +96,36 @@
     [self.timerLabel setStringValue:dateString];
     
     if ([self.model.currentTask isExpired]) {
-        // Send a system notification
-        NSUserNotification *notification = [[NSUserNotification alloc] init];
-        notification.title = @"Timer finished!";
-        // notification.informativeText = [NSString stringWithFormat:@"bla bla bla"];
-        notification.soundName = @"Glass";
-        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
-        
         // And jump to a view to decide what to do next
         id delegate = [NSApp delegate];
         [delegate switchToDecideNextStepView];
     }
 }
 
+
+- (void) scheduleNotificationForTheEndOfCurrentTask {
+    NSUserNotification *notification = [[NSUserNotification alloc] init];
+    notification.title = @"Timer finished!";
+    // notification.informativeText = [NSString stringWithFormat:@"bla bla bla"];
+    notification.soundName = @"Glass";
+    notification.deliveryDate = self.model.currentTask.expiresOn;
+    
+    // An unique Id is needed to allow the notif. center to remove from schedule if needed
+    notification.identifier = [NSString stringWithFormat:@"pomodorin-%@",[[NSUUID UUID] UUIDString]];
+    
+    [[NSUserNotificationCenter defaultUserNotificationCenter] scheduleNotification:notification];
+    self.scheduledNotification = notification;
+}
+
+- (void) cancelScheduledNotification {
+    [[NSUserNotificationCenter defaultUserNotificationCenter] removeScheduledNotification:self.scheduledNotification];
+}
+
 - (IBAction)discardTimebox:(id)sender {
     NSLog(@"'Discard Timebox' button pressed");
     [self.model discardCurrentTimebox];
-    
+    [self cancelScheduledNotification];
+
     id delegate = [NSApp delegate];
     [delegate switchToDecideNextStepView];
 }
