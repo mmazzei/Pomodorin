@@ -50,9 +50,23 @@
     self.model = nil;
 }
 
+
+// To allow click on the Dock icon, re-open the last window
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag {
+    
+    [self.window makeKeyAndOrderFront:self];
+    
+    return YES;
+}
+
 // Flag to activate the notification popup
 - (BOOL)userNotificationCenter:(NSUserNotificationCenter *)center
      shouldPresentNotification:(NSUserNotification *)notification {
+    return YES;
+}
+
+
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
     return YES;
 }
 

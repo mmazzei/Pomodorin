@@ -49,7 +49,6 @@
             break;
     }
     
-    [self timerTick:self.refreshStatusTimer];
     [self startTimer];
 }
 
@@ -58,13 +57,22 @@
     [super viewDidDisappear];
 }
 
+- (void) viewDidAppear {
+    [self.refreshStatusTimer invalidate];
+    [self startTimer];
+    [super viewDidAppear];
+}
+
 - (void) startTimer
 {
-    self.refreshStatusTimer = [NSTimer scheduledTimerWithTimeInterval:0.5
-                                                               target:self
-                                                             selector:@selector(timerTick:)
-                                                             userInfo:nil
-                                                              repeats:YES];
+    self.refreshStatusTimer = [NSTimer timerWithTimeInterval:0.5
+                                                      target:self
+                                                    selector:@selector(timerTick:)
+                                                    userInfo:nil
+                                                     repeats:YES];
+    
+    [[NSRunLoop mainRunLoop] addTimer:self.refreshStatusTimer forMode:NSRunLoopCommonModes];
+    [self timerTick:self.refreshStatusTimer];
 }
 
 - (void)timerTick:(NSTimer *)timer
@@ -89,7 +97,7 @@
         // notification.informativeText = [NSString stringWithFormat:@"bla bla bla"];
         notification.soundName = @"Glass";
         [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
-
+        
         // And jump to a view to decide what to do next
         id delegate = [NSApp delegate];
         [delegate switchToDecideNextStepView];
