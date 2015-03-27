@@ -83,9 +83,14 @@
     [self.timerLabel setStringValue:dateString];
     
     if ([self.model.currentTask isExpired]) {
-        NSSound* sound = [NSSound soundNamed:@"Glass"];
-        [sound play];
+        // Send a system notification
+        NSUserNotification *notification = [[NSUserNotification alloc] init];
+        notification.title = @"Timer finished!";
+        // notification.informativeText = [NSString stringWithFormat:@"bla bla bla"];
+        notification.soundName = @"Glass";
+        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
 
+        // And jump to a view to decide what to do next
         id delegate = [NSApp delegate];
         [delegate switchToDecideNextStepView];
     }

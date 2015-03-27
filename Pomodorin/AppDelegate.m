@@ -34,9 +34,12 @@
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    // Register myself as a notification delegate in order to configure the flags
+    [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
+
     NSLog(@"Loading the model...");
     self.model =  [NSKeyedUnarchiver unarchiveObjectWithFile:[self archivePath]];
-    
+
     [self switchToMainView];
 }
 
@@ -45,6 +48,12 @@
     BOOL success = [NSKeyedArchiver archiveRootObject:self.model toFile:[self archivePath]];
     NSLog(@"\tStatus code: %u", success);
     self.model = nil;
+}
+
+// Flag to activate the notification popup
+- (BOOL)userNotificationCenter:(NSUserNotificationCenter *)center
+     shouldPresentNotification:(NSUserNotification *)notification {
+    return YES;
 }
 
 // "Preferences" menu item activated.
