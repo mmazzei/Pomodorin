@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Config : NSObject <NSCoding>
+@interface Config : NSObject
 @property (assign) NSInteger pomodoroLength;
 @property (assign) NSInteger shortBreakLength;
 @property (assign) NSInteger longBreakLength;

@@ -38,9 +38,6 @@
         if (! _theRecord) _theRecord = [[Record alloc] init];
         
         _currentTask = [decoder decodeObjectForKey:@"currentTask"];
-        
-        _config = [decoder decodeObjectForKey:@"config"];
-        if (! _config) _config = [[Config alloc] init];
     }
     
     return self;
@@ -50,7 +47,6 @@
     NSLog(@"Encoding TodayStatus with coder");
     [coder encodeObject:self.record forKey:@"record"];
     [coder encodeObject:self.currentTask forKey:@"currentTask"];
-    [coder encodeObject:self.config forKey:@"config"];
 }
 
 -(Record*) record {

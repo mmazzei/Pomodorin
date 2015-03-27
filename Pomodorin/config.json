@@ -1,0 +1,5 @@
+{
+    "pomodoroLength": 25,
+    "shortBreakLength": 5,
+    "longBreakLength": 15
+}

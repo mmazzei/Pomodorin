@@ -13,6 +13,7 @@
 #import "RecordWindowController.h"
 #import "PreferencesWindowController.h"
 #import "TodayStatus.h"
+#import "Config.h"
 
 @interface AppDelegate ()
 
@@ -23,30 +24,20 @@
 
 @implementation AppDelegate
 
--(NSString*) archivePath {
-    // Determining archive URL
-    NSBundle *myBundle = [NSBundle mainBundle];
-    NSString *archivePath= [myBundle pathForResource:@"config" ofType:@"cfg"];
-    
-    NSLog(@"Archive path: %@", archivePath );
-    return archivePath;
-    
-}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Register myself as a notification delegate in order to configure the flags
     [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
 
-    NSLog(@"Loading the model...");
-    self.model =  [NSKeyedUnarchiver unarchiveObjectWithFile:[self archivePath]];
+    self.model = [self loadModel];
+    self.model.config = [self loadConfig];
 
     [self switchToMainView];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
-    NSLog(@"Storing model");
-    BOOL success = [NSKeyedArchiver archiveRootObject:self.model toFile:[self archivePath]];
-    NSLog(@"\tStatus code: %u", success);
+    [self saveModel:self.model];
+    [self saveConfig:self.model.config];
     self.model = nil;
 }
 
@@ -132,4 +123,66 @@
     
     [NSApp runModalForWindow:[theWindow window]];
 }
+
+/// PERSISTENCE
+-(NSString*) modelArchivePath {
+    NSBundle *myBundle = [NSBundle mainBundle];
+    NSString *archivePath= [myBundle pathForResource:@"config" ofType:@"cfg"];
+    NSLog(@"Model archive path: %@", archivePath );
+    return archivePath;
+    
+}
+
+-(NSString*) configArchivePath {
+    NSBundle *myBundle = [NSBundle mainBundle];
+    NSString *archivePath= [myBundle pathForResource:@"config" ofType:@"json"];
+    NSLog(@"Config archive path: %@", archivePath );
+    return archivePath;
+}
+
+-(TodayStatus*) loadModel {
+    NSLog(@"Loading the model...");
+    TodayStatus* model = [NSKeyedUnarchiver unarchiveObjectWithFile:[self modelArchivePath]];
+    if (!model) {
+        model = [[TodayStatus alloc] init];
+    }
+    return model;
+}
+
+-(Config*) loadConfig {
+    NSLog(@"Loading the config...");
+    NSData *archiveData = [[NSFileManager defaultManager] contentsAtPath:[self configArchivePath]];
+    NSDictionary *configDict = [NSJSONSerialization JSONObjectWithData:archiveData options:NSJSONReadingAllowFragments error:nil];
+    Config* config = [[Config alloc] init];
+    config.pomodoroLength = [configDict[@"pomodoroLength"] integerValue];
+    config.shortBreakLength = [configDict[@"shortBreakLength"] integerValue];
+    config.longBreakLength = [configDict[@"longBreakLength"] integerValue];
+    
+    return config;
+}
+
+-(void) saveModel:(TodayStatus*)model {
+    NSLog(@"Saving the model");
+    BOOL success = [NSKeyedArchiver archiveRootObject:model toFile:[self modelArchivePath]];
+    NSLog(@"\tStatus code: %u", success);
+}
+
+-(void) saveConfig:(Config*)config {
+    NSLog(@"Saving the config...");
+    
+    NSDictionary *configDict = @{
+                             @"pomodoroLength": [NSNumber numberWithInteger:config.pomodoroLength],
+                             @"shortBreakLength": [NSNumber numberWithInteger:config.shortBreakLength],
+                             @"longBreakLength": [NSNumber numberWithInteger:config.longBreakLength]
+                             };
+    
+    NSError *jsonError = [[NSError alloc] init];
+    NSData *jsonFile = [NSJSONSerialization dataWithJSONObject:configDict options:NSJSONWritingPrettyPrinted error:&jsonError];
+    if ([jsonError code]) {
+        NSLog(@"Internal error while creating Json data for the config");
+    }
+    BOOL result = [jsonFile writeToFile:[self configArchivePath] atomically:YES];
+    NSLog(@"\tStatus code: %u", result);
+}
+
 @end
