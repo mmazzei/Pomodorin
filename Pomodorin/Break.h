@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "TimeBox.h"
+@class Config;
 
 @interface Break : TimeBox
-- (id) initWithType:(TaskType) type;
+- (id) initWithType:(TaskType) type andConfig:(Config*)config;
 @end

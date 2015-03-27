@@ -69,8 +69,6 @@
 
 - (void)timerTick:(NSTimer *)timer
 {
-    //NSLog(@"Timer tick");
-    
     // Get the time for the current task expiration
     NSDate* now = [NSDate date];
     NSCalendar *calendar = [NSCalendar currentCalendar];

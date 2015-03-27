@@ -11,6 +11,7 @@
 #import "PomodoringViewController.h"
 #import "DecideNextStepViewController.h"
 #import "RecordWindowController.h"
+#import "PreferencesWindowController.h"
 #import "TodayStatus.h"
 
 @interface AppDelegate ()
@@ -46,6 +47,12 @@
     self.model = nil;
 }
 
+// "Preferences" menu item activated.
+- (IBAction)showPreferences:(id)sender {
+    [self showPreferencesWindow];
+}
+
+
 - (void) switchToMainView {
     [self initAndSetAsCurrentView:[MainViewController alloc] withNibName:@"MainViewController"];
 }
@@ -58,12 +65,13 @@
     [self initAndSetAsCurrentView:[DecideNextStepViewController alloc] withNibName:@"DecideNextStepViewController"];
 }
 
-- (void) switchToRecordViewController {
+- (void) showRecordWindow {
     [self initAndShowWindow:[RecordWindowController alloc] withNibName:@"RecordWindowController"];
-    NSLog(@"BUAT");
-   
 }
 
+- (void) showPreferencesWindow {
+    [self initAndShowWindow:[PreferencesWindowController alloc] withNibName:@"PreferencesWindowController"];
+}
 
 
 // HELPERS
@@ -96,9 +104,9 @@
     if ([theWindow respondsToSelector:@selector(setModel:)])
     {
         id aWindow = theWindow;
-       [aWindow setModel:self.model];
+        [aWindow setModel:self.model];
     }
-
+    
     [NSApp runModalForWindow:[theWindow window]];
 }
 @end

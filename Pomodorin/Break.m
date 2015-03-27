@@ -7,17 +7,17 @@
 //
 
 #import "Break.h"
-#import "Configs.h"
+#import "Config.h"
 
 @implementation Break
 
--(id) initWithType:(TaskType)type {
-    int breakMinutes = SHORT_BREAK_DURATION;
+- (id) initWithType:(TaskType) type andConfig:(Config*)config {
+    NSInteger breakMinutes = config.shortBreakLength;
     if (type == LONG_BREAK) {
-        breakMinutes = LONG_BREAK_DURATION;
+        breakMinutes = config.longBreakLength;
     }
-
-    NSDate* expiresOn = [[NSDate alloc] initWithTimeIntervalSinceNow:(breakMinutes)];
+    
+    NSDate* expiresOn = [[NSDate alloc] initWithTimeIntervalSinceNow:(breakMinutes * 60)];
     
     self = [super initWithType:type expiringOn:expiresOn];
     

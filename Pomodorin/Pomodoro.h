@@ -12,9 +12,11 @@
 // @class CurrentTask;
 // So, I replaced by this import:
 #import "TimeBox.h"
+@class Config;
 
 @interface Pomodoro : TimeBox <NSCoding>
 @property (assign) int internalInterruptions;
 @property (assign) int externalInterruptions;
 
+-(id) initWithConfig:(Config*) config;
 @end

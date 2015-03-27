@@ -7,7 +7,7 @@
 //
 
 #import "Pomodoro.h"
-#import "Configs.h"
+#import "Config.h"
 
 @implementation Pomodoro
 
@@ -28,9 +28,9 @@
     [coder encodeInt:self.externalInterruptions forKey:@"externalInterruptions"];
 }
 
--(id) init {
+-(id) initWithConfig:(Config*) config {
     // Expires on X minutes from now
-    NSDate* expiresOn = [[NSDate alloc] initWithTimeIntervalSinceNow:(POMODORO_DURATION)];
+    NSDate* expiresOn = [[NSDate alloc] initWithTimeIntervalSinceNow:config.pomodoroLength*60];
 
     self = [super initWithType:POMODORO expiringOn:expiresOn];
    

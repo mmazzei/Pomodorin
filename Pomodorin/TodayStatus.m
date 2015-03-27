@@ -11,6 +11,7 @@
 #import "Pomodoro.h"
 #import "Break.h"
 #import "Record.h"
+#import "Config.h"
 
 @interface TodayStatus ()
 @property (strong, readonly) Record* theRecord;
@@ -23,6 +24,7 @@
     
     if (self) {
         _theRecord = [[Record alloc] init];
+        _config = [[Config alloc] init];
     }
     
     return self;
@@ -33,7 +35,12 @@
     self = [super init];
     if (self) {
         _theRecord = [decoder decodeObjectForKey:@"record"];
+        if (! _theRecord) _theRecord = [[Record alloc] init];
+        
         _currentTask = [decoder decodeObjectForKey:@"currentTask"];
+        
+        _config = [decoder decodeObjectForKey:@"config"];
+        if (! _config) _config = [[Config alloc] init];
     }
     
     return self;
@@ -43,6 +50,7 @@
     NSLog(@"Encoding TodayStatus with coder");
     [coder encodeObject:self.record forKey:@"record"];
     [coder encodeObject:self.currentTask forKey:@"currentTask"];
+    [coder encodeObject:self.config forKey:@"config"];
 }
 
 -(Record*) record {
@@ -56,17 +64,17 @@
 
 -(void) startAPomodoro {
     [self recordCurrentTaskIfFinished];
-    self.currentTask = [[Pomodoro alloc] init];
+    self.currentTask = [[Pomodoro alloc] initWithConfig:self.config];
 }
 
 -(void) startAShortBreak {
     [self recordCurrentTaskIfFinished];
-    self.currentTask = [[Break alloc] initWithType:SHORT_BREAK];
+    self.currentTask = [[Break alloc] initWithType:SHORT_BREAK andConfig:self.config];
 }
 
 -(void) startALongBreak {
     [self recordCurrentTaskIfFinished];
-    self.currentTask = [[Break alloc] initWithType:LONG_BREAK];
+    self.currentTask = [[Break alloc] initWithType:LONG_BREAK andConfig:self.config];
 }
 
 -(void) recordCurrentTaskIfFinished {

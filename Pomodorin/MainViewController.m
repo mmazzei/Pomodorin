@@ -34,7 +34,7 @@
 - (IBAction)seeSummary:(id)sender {
     NSLog(@"See summary button pressed");
     id delegate = [NSApp delegate];
-    [delegate switchToRecordViewController];
+    [delegate showRecordWindow];
 }
 
 @end
