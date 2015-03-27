@@ -10,7 +10,7 @@
 
 @implementation Config
 -(id) initWithCoder:(NSCoder *)decoder {
-    NSLog(@"Initing Config with decoder");
+    NSLog(@"Initializing Config with decoder");
 
     if (self) {
         _pomodoroLength = [decoder decodeIntegerForKey:@"pomodoroLength"];

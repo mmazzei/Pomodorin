@@ -25,7 +25,7 @@
 }
 
 -(id) initWithCoder:(NSCoder *)decoder {
-    NSLog(@"Initing Record with decoder");
+    NSLog(@"Initializing Record with decoder");
     self = [super init];
     if (self) {
         _record = [decoder decodeObjectForKey:@"record"];

@@ -23,7 +23,7 @@
 }
 
 - (IBAction)startPomodoro:(id)sender {
-    NSLog(@"Start pomodoro button pressed");
+    NSLog(@"'Start Pomodoro' button pressed");
     [self.model startAPomodoro];
     
     id delegate = [NSApp delegate];
@@ -31,7 +31,7 @@
 }
 
 - (IBAction)startShortBreak:(id)sender {
-    NSLog(@"Start short break button pressed");
+    NSLog(@"'Start Short Break' button pressed");
     [self.model startAShortBreak];
 
     id delegate = [NSApp delegate];
@@ -39,7 +39,7 @@
 }
 
 - (IBAction)startLongBreak:(id)sender {
-    NSLog(@"Start long break button pressed");
+    NSLog(@"'Start Long Break' button pressed");
     [self.model startALongBreak];
 
     id delegate = [NSApp delegate];
@@ -55,7 +55,7 @@
 }
 
 - (IBAction)seeSummary:(id)sender {
-    NSLog(@"See summary button pressed");
+    NSLog(@"'See Summary' button pressed");
     
     id delegate = [NSApp delegate];
     [delegate showRecordWindow];

@@ -72,11 +72,14 @@
                                                      repeats:YES];
     
     [[NSRunLoop mainRunLoop] addTimer:self.refreshStatusTimer forMode:NSRunLoopCommonModes];
+    
+    // small hack (yeah) to initialize the display with the adequated values
     [self timerTick:self.refreshStatusTimer];
 }
 
 - (void)timerTick:(NSTimer *)timer
 {
+    NSLog(@"Timer tick");
     // Get the time for the current task expiration
     NSDate* now = [NSDate date];
     NSCalendar *calendar = [NSCalendar currentCalendar];
@@ -105,7 +108,7 @@
 }
 
 - (IBAction)discardTimebox:(id)sender {
-    NSLog(@"Discard timebox button pressed");
+    NSLog(@"'Discard Timebox' button pressed");
     [self.model discardCurrentTimebox];
     
     id delegate = [NSApp delegate];
@@ -113,14 +116,14 @@
 }
 
 - (IBAction)addInternalInterruption:(id)sender {
-    NSLog(@"Add internal interruption button pressed");
+    NSLog(@"'Add Internal Interruption' button pressed");
     Pomodoro* currentPomodoro = (Pomodoro*) self.model.currentTask;
     currentPomodoro.internalInterruptions++;
     [self.internalInterruptionsLabel setTitle:[NSString stringWithFormat:@"%d",currentPomodoro.internalInterruptions]];
 }
 
 - (IBAction)addExternalInterruption:(id)sender {
-    NSLog(@"Add external interruption button pressed");
+    NSLog(@"'Add External Interruption' button pressed");
     Pomodoro* currentPomodoro = (Pomodoro*) self.model.currentTask;
     currentPomodoro.externalInterruptions++;
     [self.externalInterruptionsLabel setTitle:[NSString stringWithFormat:@"%d",currentPomodoro.externalInterruptions]];

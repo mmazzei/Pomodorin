@@ -12,7 +12,7 @@
 @implementation Pomodoro
 
 -(id) initWithCoder:(NSCoder *)decoder {
-    NSLog(@"Initing Pomodoro with decoder");
+    NSLog(@"Initializing Pomodoro with decoder");
     self = [super initWithCoder:decoder];
     if (self) {
         _internalInterruptions = [decoder decodeIntForKey:@"internalInterruptions"];

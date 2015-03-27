@@ -12,7 +12,7 @@
 @implementation Summary
 
 -(id) initWithCoder:(NSCoder *)decoder {
-    NSLog(@"Initing Summary with decoder");
+    NSLog(@"Initializing Summary with decoder");
     self = [super init];
     if (self) {
         _pomodoros = [decoder decodeIntegerForKey:@"pomodoros"];

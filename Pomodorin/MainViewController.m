@@ -23,7 +23,7 @@
 }
 
 - (IBAction)startPomodoring:(id)sender {
-    NSLog(@"Start pomodoring button pressed");
+    NSLog(@"'Start Pomodoring' button pressed");
     [self.model startAPomodoro];
 
     // I'm pretty sure the app delegate is the one I implemented :)
@@ -32,7 +32,7 @@
 }
 
 - (IBAction)seeSummary:(id)sender {
-    NSLog(@"See summary button pressed");
+    NSLog(@"See Summary' button pressed");
     id delegate = [NSApp delegate];
     [delegate showRecordWindow];
 }

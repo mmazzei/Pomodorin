@@ -31,7 +31,7 @@
 }
 
 -(id) initWithCoder:(NSCoder *)decoder {
-    NSLog(@"Initing TodayStatus with decoder");
+    NSLog(@"Initializing TodayStatus with decoder");
     self = [super init];
     if (self) {
         _theRecord = [decoder decodeObjectForKey:@"record"];

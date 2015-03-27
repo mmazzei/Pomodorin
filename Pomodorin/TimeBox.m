@@ -22,7 +22,7 @@
 }
 
 -(id) initWithCoder:(NSCoder *)decoder {
-    NSLog(@"Initing TimeBox with decoder");
+    NSLog(@"Initializing TimeBox with decoder");
     self = [super init];
     if (self) {
         _type = [decoder decodeIntForKey:@"type"];
