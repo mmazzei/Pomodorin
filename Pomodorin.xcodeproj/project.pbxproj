@@ -27,10 +27,10 @@
 		9A597C7B1AC3301D002648A6 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A597C761AC3301D002648A6 /* MainViewController.xib */; };
 		9A597C7C1AC3301D002648A6 /* PomodoringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A597C781AC3301D002648A6 /* PomodoringViewController.m */; };
 		9A597C7D1AC3301D002648A6 /* PomodoringViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A597C791AC3301D002648A6 /* PomodoringViewController.xib */; };
-		9A597C841AC498FA002648A6 /* config.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 9A597C831AC498FA002648A6 /* config.cfg */; };
 		9A597C881AC4A160002648A6 /* RecordWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A597C861AC4A160002648A6 /* RecordWindowController.m */; };
 		9A597C891AC4A160002648A6 /* RecordWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A597C871AC4A160002648A6 /* RecordWindowController.xib */; };
 		9AE08AE81AC5FB5600FC0E5D /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AE08AE71AC5FB5600FC0E5D /* config.json */; };
+		9AE08AEA1AC60D8F00FC0E5D /* model.dat in Resources */ = {isa = PBXBuildFile; fileRef = 9AE08AE91AC60D8F00FC0E5D /* model.dat */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,12 +80,12 @@
 		9A597C771AC3301D002648A6 /* PomodoringViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PomodoringViewController.h; sourceTree = "<group>"; };
 		9A597C781AC3301D002648A6 /* PomodoringViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PomodoringViewController.m; sourceTree = "<group>"; };
 		9A597C791AC3301D002648A6 /* PomodoringViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PomodoringViewController.xib; sourceTree = "<group>"; };
-		9A597C831AC498FA002648A6 /* config.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.cfg; sourceTree = "<group>"; };
 		9A597C851AC4A160002648A6 /* RecordWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordWindowController.h; sourceTree = "<group>"; };
 		9A597C861AC4A160002648A6 /* RecordWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordWindowController.m; sourceTree = "<group>"; };
 		9A597C871AC4A160002648A6 /* RecordWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordWindowController.xib; sourceTree = "<group>"; };
 		9AE08AE61AC5F48D00FC0E5D /* GlobalDeclarations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalDeclarations.h; sourceTree = "<group>"; };
 		9AE08AE71AC5FB5600FC0E5D /* config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
+		9AE08AE91AC60D8F00FC0E5D /* model.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = model.dat; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,8 +144,8 @@
 			children = (
 				9A597C381AC32F41002648A6 /* Info.plist */,
 				9A597C3C1AC32F41002648A6 /* main.m */,
-				9A597C831AC498FA002648A6 /* config.cfg */,
 				9AE08AE71AC5FB5600FC0E5D /* config.json */,
+				9AE08AE91AC60D8F00FC0E5D /* model.dat */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -290,9 +290,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A597C841AC498FA002648A6 /* config.cfg in Resources */,
 				9A597C3F1AC32F41002648A6 /* Images.xcassets in Resources */,
 				9AE08AE81AC5FB5600FC0E5D /* config.json in Resources */,
+				9AE08AEA1AC60D8F00FC0E5D /* model.dat in Resources */,
 				9A597C731AC3300E002648A6 /* DecideNextStepViewController.xib in Resources */,
 				9A597C421AC32F41002648A6 /* MainMenu.xib in Resources */,
 				9A597C7D1AC3301D002648A6 /* PomodoringViewController.xib in Resources */,

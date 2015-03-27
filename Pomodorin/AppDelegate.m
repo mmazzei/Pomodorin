@@ -28,10 +28,10 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Register myself as a notification delegate in order to configure the flags
     [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
-
+    
     self.model = [self loadModel];
     self.model.config = [self loadConfig];
-
+    
     [self switchToMainView];
 }
 
@@ -127,7 +127,7 @@
 /// PERSISTENCE
 -(NSString*) modelArchivePath {
     NSBundle *myBundle = [NSBundle mainBundle];
-    NSString *archivePath= [myBundle pathForResource:@"config" ofType:@"cfg"];
+    NSString *archivePath= [myBundle pathForResource:@"model" ofType:@"dat"];
     NSLog(@"Model archive path: %@", archivePath );
     return archivePath;
     
@@ -142,7 +142,16 @@
 
 -(TodayStatus*) loadModel {
     NSLog(@"Loading the model...");
-    TodayStatus* model = [NSKeyedUnarchiver unarchiveObjectWithFile:[self modelArchivePath]];
+    TodayStatus* model = nil;
+    NSString* archivePath = [self modelArchivePath];
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:archivePath]) {
+        NSData* archiveData =[[NSFileManager defaultManager] contentsAtPath:archivePath];
+        if ([archiveData length]) {
+            model = [NSKeyedUnarchiver unarchiveObjectWithData:archiveData];
+        }
+    }
+    
     if (!model) {
         model = [[TodayStatus alloc] init];
     }
@@ -171,10 +180,10 @@
     NSLog(@"Saving the config...");
     
     NSDictionary *configDict = @{
-                             @"pomodoroLength": [NSNumber numberWithInteger:config.pomodoroLength],
-                             @"shortBreakLength": [NSNumber numberWithInteger:config.shortBreakLength],
-                             @"longBreakLength": [NSNumber numberWithInteger:config.longBreakLength]
-                             };
+                                 @"pomodoroLength": [NSNumber numberWithInteger:config.pomodoroLength],
+                                 @"shortBreakLength": [NSNumber numberWithInteger:config.shortBreakLength],
+                                 @"longBreakLength": [NSNumber numberWithInteger:config.longBreakLength]
+                                 };
     
     NSError *jsonError = [[NSError alloc] init];
     NSData *jsonFile = [NSJSONSerialization dataWithJSONObject:configDict options:NSJSONWritingPrettyPrinted error:&jsonError];
