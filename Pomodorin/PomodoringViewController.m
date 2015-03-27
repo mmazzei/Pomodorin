@@ -143,13 +143,4 @@
     currentPomodoro.externalInterruptions++;
     [self.externalInterruptionsLabel setTitle:[NSString stringWithFormat:@"%d",currentPomodoro.externalInterruptions]];
 }
-
-- (IBAction)stopPomodoring:(id)sender {
-    NSLog(@"Stop pomodoring button pressed");
-    [self.model discardCurrentTimebox];
-    
-    id delegate = [NSApp delegate];
-    [delegate switchToMainView];
-}
-
 @end

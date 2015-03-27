@@ -46,14 +46,6 @@
     [delegate switchToPomodoringView];
 }
 
-- (IBAction)stopPomodoring:(id)sender {
-    NSLog(@"Stop pomodoring button pressed");
-    [self.model discardCurrentTimebox];
-    
-    id delegate = [NSApp delegate];
-    [delegate switchToMainView];
-}
-
 - (IBAction)seeSummary:(id)sender {
     NSLog(@"'See Summary' button pressed");
     
