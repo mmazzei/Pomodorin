@@ -50,7 +50,6 @@
             break;
     }
     
-    [self startTimer];
     [self scheduleNotificationForTheEndOfCurrentTask];
 }
 
@@ -60,9 +59,10 @@
 }
 
 - (void) viewDidAppear {
+    [super viewDidAppear];
+
     [self.refreshStatusTimer invalidate];
     [self startTimer];
-    [super viewDidAppear];
 }
 
 - (void) startTimer
@@ -72,7 +72,6 @@
                                                     selector:@selector(timerTick:)
                                                     userInfo:nil
                                                      repeats:YES];
-    
     [[NSRunLoop mainRunLoop] addTimer:self.refreshStatusTimer forMode:NSRunLoopCommonModes];
     
     // small hack (yeah) to initialize the display with the adequated values
@@ -82,23 +81,26 @@
 - (void)timerTick:(NSTimer *)timer
 {
     NSLog(@"Timer tick");
-    // Get the time for the current task expiration
-    NSDate* now = [NSDate date];
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *difference = [calendar components:(NSCalendarUnitMinute | NSCalendarUnitSecond)
-                                               fromDate:now
-                                                 toDate:self.model.currentTask.expiresOn
-                                                options:0];
-    NSInteger minutes = [difference minute];
-    NSInteger seconds = [difference second];
-    
-    NSString *dateString = [NSString stringWithFormat:@"%2ld:%02ld",minutes,seconds];
-    [self.timerLabel setStringValue:dateString];
     
     if ([self.model.currentTask isExpired]) {
         // And jump to a view to decide what to do next
         id delegate = [NSApp delegate];
         [delegate switchToDecideNextStepView];
+    }
+    else {
+        // Get the time for the current task expiration
+        NSDate* now = [NSDate date];
+        NSCalendar *calendar = [NSCalendar currentCalendar];
+        NSDateComponents *difference = [calendar components:(NSCalendarUnitMinute | NSCalendarUnitSecond)
+                                                   fromDate:now
+                                                     toDate:self.model.currentTask.expiresOn
+                                                    options:0];
+        NSInteger minutes = [difference minute];
+        NSInteger seconds = [difference second];
+        NSLog(@"\t\tRemaining time: %2ld:%02ld", minutes, seconds);
+        
+        NSString *dateString = [NSString stringWithFormat:@"%2ld:%02ld",minutes,seconds];
+        [self.timerLabel setStringValue:dateString];
     }
 }
 
@@ -111,7 +113,7 @@
     notification.deliveryDate = self.model.currentTask.expiresOn;
     
     // An unique Id is needed to allow the notif. center to remove from schedule if needed
-    notification.identifier = [NSString stringWithFormat:@"pomodorin-%@",[[NSUUID UUID] UUIDString]];
+    notification.identifier = [NSString stringWithFormat:@"pomodorin-%lu", self.model.currentTask.expiresOn.hash];
     
     [[NSUserNotificationCenter defaultUserNotificationCenter] scheduleNotification:notification];
     self.scheduledNotification = notification;
@@ -119,13 +121,14 @@
 
 - (void) cancelScheduledNotification {
     [[NSUserNotificationCenter defaultUserNotificationCenter] removeScheduledNotification:self.scheduledNotification];
+    self.scheduledNotification = nil;
 }
 
 - (IBAction)discardTimebox:(id)sender {
     NSLog(@"'Discard Timebox' button pressed");
     [self.model discardCurrentTimebox];
     [self cancelScheduledNotification];
-
+    
     id delegate = [NSApp delegate];
     [delegate switchToDecideNextStepView];
 }

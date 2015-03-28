@@ -13,6 +13,7 @@
 #import "RecordWindowController.h"
 #import "PreferencesWindowController.h"
 #import "TodayStatus.h"
+#import "TimeBox.h"
 #import "Config.h"
 
 @interface AppDelegate ()
@@ -32,7 +33,14 @@
     self.model = [self loadModel];
     self.model.config = [self loadConfig];
     
-    [self switchToMainView];
+    // When starting the app, if there are a valid current task, show
+    // the pomodoring view, it will seems as if the app was never closed
+    if (self.model.currentTask && ![self.model.currentTask isExpired]) {
+        [self switchToPomodoringView];
+    }
+    else {
+        [self switchToMainView];
+    }
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -44,16 +52,28 @@
 
 // To allow click on the Dock icon, re-open the last window
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag {
+    if (!flag) {
+        [self.window makeKeyAndOrderFront:self];
+    }
     
-    [self.window makeKeyAndOrderFront:self];
-    
-    return YES;
+    return flag;
 }
 
 // Flag to activate the notification popup
 - (BOOL)userNotificationCenter:(NSUserNotificationCenter *)center
      shouldPresentNotification:(NSUserNotification *)notification {
     return YES;
+}
+
+// When coming from the notification, maximize the window
+- (void)userNotificationCenter:(NSUserNotificationCenter *)center didActivateNotification:(NSUserNotification *)notification {
+    // This is to avoid the segmentation fault for the case
+    // of minimized app -> notification -> user clicks notificaction
+    //  -> nothing happens -> user maximizes the app -> segmentation fault
+    if ([self.model.currentTask isExpired]) {
+        [self switchToDecideNextStepView];
+    }
+    [[self window] deminiaturize:self];
 }
 
 
