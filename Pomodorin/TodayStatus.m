@@ -7,6 +7,7 @@
 //
 
 #import "TodayStatus.h"
+#import "GlobalDeclarations.h"
 #import "TimeBox.h"
 #import "Pomodoro.h"
 #import "Break.h"

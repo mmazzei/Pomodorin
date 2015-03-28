@@ -8,6 +8,7 @@
 //
 
 #import "Record.h"
+#import "GlobalDeclarations.h"
 #import "Summary.h"
 
 @interface Record ()

@@ -7,6 +7,7 @@
 //
 
 #import "PomodoringViewController.h"
+#import "GlobalDeclarations.h"
 #import "AppDelegate.h"
 
 #import "TodayStatus.h"

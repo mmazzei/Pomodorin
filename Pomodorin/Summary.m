@@ -7,6 +7,7 @@
 //
 
 #import "Summary.h"
+#import "GlobalDeclarations.h"
 #import "Pomodoro.h"
 
 @implementation Summary

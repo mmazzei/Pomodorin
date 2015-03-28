@@ -7,6 +7,7 @@
 //
 
 #import "Config.h"
+#import "GlobalDeclarations.h"
 
 @implementation Config
 

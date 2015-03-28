@@ -7,6 +7,8 @@
 //
 
 #import "PreferencesWindowController.h"
+#import "GlobalDeclarations.h"
+
 #import "TodayStatus.h"
 #import "Config.h"
 

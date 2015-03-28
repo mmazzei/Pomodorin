@@ -7,6 +7,7 @@
 //
 
 #import "Break.h"
+#import "GlobalDeclarations.h"
 #import "Config.h"
 
 @implementation Break

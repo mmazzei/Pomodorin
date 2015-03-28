@@ -7,6 +7,8 @@
 //
 
 #import "RecordWindowController.h"
+#import "GlobalDeclarations.h"
+
 #import "TodayStatus.h"
 #import "Record.h"
 

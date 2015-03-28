@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "GlobalDeclarations.h"
 #import "MainViewController.h"
 #import "PomodoringViewController.h"
 #import "DecideNextStepViewController.h"

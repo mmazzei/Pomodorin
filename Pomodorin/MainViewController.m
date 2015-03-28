@@ -7,7 +7,9 @@
 //
 
 #import "MainViewController.h"
+#import "GlobalDeclarations.h"
 #import "AppDelegate.h"
+
 #import "TodayStatus.h"
 #import "Record.h"
 
