@@ -112,6 +112,7 @@
     // notification.informativeText = [NSString stringWithFormat:@"bla bla bla"];
     notification.soundName = @"Glass";
     notification.deliveryDate = self.model.currentTask.expiresOn;
+    notification.contentImage = self.currentTaskImage.image;
     
     // An unique Id is needed to allow the notif. center to remove from schedule if needed
     notification.identifier = [NSString stringWithFormat:@"pomodorin-%lu", self.model.currentTask.expiresOn.hash];
