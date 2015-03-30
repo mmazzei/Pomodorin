@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface Config : NSObject
+// Lengths in minutes
 @property (assign) NSInteger pomodoroLength;
 @property (assign) NSInteger shortBreakLength;
 @property (assign) NSInteger longBreakLength;

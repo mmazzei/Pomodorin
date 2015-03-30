@@ -148,4 +148,27 @@
     currentPomodoro.externalInterruptions++;
     [self.externalInterruptionsLabel setTitle:[NSString stringWithFormat:@"%d",currentPomodoro.externalInterruptions]];
 }
+
+- (IBAction)automaticModeToggle:(id)sender {
+    NSLog(@"'Add External Interruption' button pressed");
+    // 1_ Add a flag to store this status
+    // 2_ Add a "recommendedNextTimebox" to TodayStatus, returning a new instance
+    //    with the next timebox to execute if right now want to do so (may be
+    //    the same timebox as now if there are a valid currentTask in execution)
+    //
+    // How to avoid to switch to the next view?
+    //   - Evaluate the flag here, on the timer callback, and, if true and
+    //     the current task expired => set the current task to the recommended one,
+    //     launch a new timer, etc
+    //
+    // Which view should the app show on start?
+    //   - The current behavior is to show the Pomodoring view if there are a valid currentTask.
+    //   - But... if the current task is expired and auto-mode is set to ON?
+    //        > If the last task is from yesterday => go to main window
+    //        > If the last task is from today => go to Pomodoring view, with the new task
+    //
+    // How to support auto-mode when the app is minimized/closed????
+    // A notification still will be shown, but as for now, I cannot execute app code when
+    // the app is minimized/closed, so I cannot start a new task and schedule a new notification.
+}
 @end
