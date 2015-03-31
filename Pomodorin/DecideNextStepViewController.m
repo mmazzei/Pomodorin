@@ -19,15 +19,17 @@
 @property (weak) IBOutlet NSButton *startOption1Button;
 @property (weak) IBOutlet NSButton *startOption2Button;
 
-@property (assign) SEL recommendedActionSelector;
-@property (assign) SEL startOption1Selector;
-@property (assign) SEL startOption2Selector;
+@property (copy) void (^recommendedActionBlock)(id);
+@property (copy) void (^startOption1Block)(id);
+@property (copy) void (^startOption2Block)(id);
 @end
 
 @implementation DecideNextStepViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // To avoid a strong reference cycle
+    DecideNextStepViewController* __weak tmpSelf = self;
 
     // If recommended timebox is Pomodoro then
     //   - recommendedActionButton => Starts a Pomodoro
@@ -37,13 +39,15 @@
     if ([self.model recommendedTimebox].type == POMODORO) {
         self.recommendedActionButton.image = [NSImage imageNamed:@"tomato"];
         self.recommendedActionButton.toolTip = @"Start a Pomodoro";
-        self.recommendedActionSelector = @selector(startPomodoro:);
+        self.recommendedActionBlock = ^(id sender){[tmpSelf startPomodoro:sender];};
+
         self.startOption1Button.image = [NSImage imageNamed:@"hourglass"];
         self.startOption1Button.toolTip = @"Start a Short Break";
-        self.startOption1Selector = @selector(startShortBreak:);
+        self.startOption1Block = ^(id sender){[tmpSelf startShortBreak:sender];};
+
         self.startOption2Button.image = [NSImage imageNamed:@"dark_hourglass"];
         self.startOption2Button.toolTip = @"Start a Long Break";
-        self.startOption2Selector = @selector(startLongBreak:);
+        self.startOption2Block = ^(id sender){[tmpSelf startLongBreak:sender];};
     }
     
     // If recommended timebox is Short Break then
@@ -54,13 +58,15 @@
     else if ([self.model recommendedTimebox].type == SHORT_BREAK) {
         self.recommendedActionButton.image = [NSImage imageNamed:@"hourglass"];
         self.recommendedActionButton.toolTip = @"Start a Short Break";
-        self.recommendedActionSelector = @selector(startShortBreak:);
+        self.recommendedActionBlock = ^(id sender){[tmpSelf startShortBreak:sender];};
+        
         self.startOption1Button.image = [NSImage imageNamed:@"tomato"];
         self.startOption1Button.toolTip = @"Start a Pomodoro";
-        self.startOption1Selector = @selector(startPomodoro:);
+        self.startOption1Block = ^(id sender){[tmpSelf startPomodoro:sender];};
+        
         self.startOption2Button.image = [NSImage imageNamed:@"dark_hourglass"];
         self.startOption2Button.toolTip = @"Start a Long Break";
-        self.startOption2Selector = @selector(startLongBreak:);
+        self.startOption2Block = ^(id sender){[tmpSelf startLongBreak:sender];};
     }
 
     // If recommended timebox is Short Break then
@@ -70,28 +76,29 @@
     else if ([self.model recommendedTimebox].type == LONG_BREAK) {
         self.recommendedActionButton.image = [NSImage imageNamed:@"dark_hourglass"];
         self.recommendedActionButton.toolTip = @"Start a Long Break";
-        self.recommendedActionSelector = @selector(startLongBreak:);
+        self.recommendedActionBlock = ^(id sender){[tmpSelf startLongBreak:sender];};
+        
         self.startOption1Button.image = [NSImage imageNamed:@"hourglass"];
         self.startOption1Button.toolTip = @"Start a Short Break";
-        self.startOption1Selector = @selector(startShortBreak:);
+        self.startOption1Block = ^(id sender){[tmpSelf startShortBreak:sender];};
+        
         self.startOption2Button.image = [NSImage imageNamed:@"tomato"];
         self.startOption2Button.toolTip = @"Start a Pomodoro";
-        self.startOption2Selector = @selector(startPomodoro:);
+        self.startOption2Block = ^(id sender){[tmpSelf startPomodoro:sender];};
     }
 }
 - (IBAction)startRecommended:(id)sender {
     NSLog(@"'Start Recommended' button pressed");
-    [self performSelector:self.recommendedActionSelector withObject:sender];
-    
+    self.recommendedActionBlock(sender);
 }
 - (IBAction)startOption1:(id)sender {
     NSLog(@"'Start Option1' button pressed");
-    [self performSelector:self.startOption1Selector withObject:sender];
+    self.startOption1Block(sender);
 }
 
 - (IBAction)startOption2:(id)sender {
     NSLog(@"'Start Option2' button pressed");
-    [self performSelector:self.startOption2Selector withObject:sender];
+    self.startOption2Block(sender);
 }
 
 - (IBAction)startPomodoro:(id)sender {
