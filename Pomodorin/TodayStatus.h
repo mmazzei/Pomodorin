@@ -18,6 +18,8 @@
 @property (strong) Config* config;
 
 -(Record*) record;
+-(TimeBox*) recommendedTimebox;
+
 -(void) discardCurrentTimebox;
 
 -(void) startAPomodoro;

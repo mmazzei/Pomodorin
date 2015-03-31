@@ -82,8 +82,9 @@
 - (void)timerTick:(NSTimer *)timer
 {
     NSLog(@"Timer tick");
-    
-    if ([self.model.currentTask isExpired]) {
+    [self.model record];
+
+    if ((!self.model.currentTask) || [self.model.currentTask isExpired]) {
         // And jump to a view to decide what to do next
         id delegate = [NSApp delegate];
         [delegate switchToDecideNextStepView];

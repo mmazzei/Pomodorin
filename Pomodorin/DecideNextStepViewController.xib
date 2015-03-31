@@ -6,6 +6,9 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="DecideNextStepViewController">
             <connections>
+                <outlet property="recommendedActionButton" destination="aqb-l9-vmq" id="n0c-pp-rR0"/>
+                <outlet property="startOption1Button" destination="JlS-J5-sO3" id="3Gm-cx-KqU"/>
+                <outlet property="startOption2Button" destination="NMX-DT-ytC" id="qeD-JG-gbs"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -41,10 +44,10 @@
                                     <font key="font" metaFont="miniSystem"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="startPomodoro:" target="-2" id="LzK-SP-WqI"/>
+                                    <action selector="startRecommended:" target="-2" id="9Lv-pm-hSm"/>
                                 </connections>
                             </button>
-                            <button identifier="startShortBreak" toolTip="Start a Short Break" verticalHuggingPriority="750" id="JlS-J5-sO3">
+                            <button identifier="startOption1" toolTip="Start a Short Break" verticalHuggingPriority="750" id="JlS-J5-sO3">
                                 <rect key="frame" x="42" y="41" width="88" height="87"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="smallSquare" alternateTitle="Start a Short Break" bezelStyle="smallSquare" image="hourglass" imagePosition="overlaps" alignment="center" controlSize="mini" state="on" imageScaling="proportionallyUpOrDown" sound="Pop" inset="2" id="Ynv-Ki-jBL">
@@ -52,10 +55,10 @@
                                     <font key="font" metaFont="miniSystem"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="startShortBreak:" target="-2" id="jYL-SD-aEC"/>
+                                    <action selector="startOption1:" target="-2" id="UJT-oy-oSy"/>
                                 </connections>
                             </button>
-                            <button identifier="startLongBreak" toolTip="Start a Long Break" verticalHuggingPriority="750" id="NMX-DT-ytC">
+                            <button identifier="startOption2" toolTip="Start a Long Break" verticalHuggingPriority="750" id="NMX-DT-ytC">
                                 <rect key="frame" x="151" y="41" width="88" height="87"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="smallSquare" alternateTitle="Start a Long Break" bezelStyle="smallSquare" image="dark_hourglass" imagePosition="overlaps" alignment="center" controlSize="mini" state="on" imageScaling="proportionallyUpOrDown" sound="Pop" inset="2" id="Tzj-Ml-exe">
@@ -63,7 +66,7 @@
                                     <font key="font" metaFont="miniSystem"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="startLongBreak:" target="-2" id="823-PU-TJL"/>
+                                    <action selector="startOption2:" target="-2" id="gaH-8N-wON"/>
                                 </connections>
                             </button>
                         </subviews>
