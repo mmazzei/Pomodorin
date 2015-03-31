@@ -88,11 +88,11 @@ static const NSUInteger MAX_TIMEBOXES_TO_REMEMBER_FOR_AUTO_MODE = 7;
             NSLog(@"Three series of [Pomodoro,ShortBreak] and a Pomodoro => Recommend a long break");
             recommendation = [[Break alloc] initWithType:LONG_BREAK andConfig:self.config];
         }
+    }
+    else {
         // Short-break timebox in other case
-        else {
-            NSLog(@"Last timebox is a pomodoro, without any previous valid pattern => Recommend a short break");
-            recommendation =  [[Break alloc] initWithType:SHORT_BREAK andConfig:self.config];
-        }
+        NSLog(@"Last timebox is a pomodoro, without any previous valid pattern => Recommend a short break");
+        recommendation =  [[Break alloc] initWithType:SHORT_BREAK andConfig:self.config];
     }
     return recommendation;
 }
@@ -142,5 +142,6 @@ static const NSUInteger MAX_TIMEBOXES_TO_REMEMBER_FOR_AUTO_MODE = 7;
         }
         self.currentTask = nil;
     }
+    NSLog(@"#### LAST FINISHED TIMEBOXES NOW: %lu - %@", [self.lastFinishedTimeboxes count], self.lastFinishedTimeboxes);
 }
 @end
