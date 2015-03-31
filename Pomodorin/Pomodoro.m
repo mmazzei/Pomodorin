@@ -31,7 +31,7 @@
 
 -(id) initWithConfig:(Config*) config {
     // Expires on X minutes from now
-    NSDate* expiresOn = [[NSDate alloc] initWithTimeIntervalSinceNow:config.pomodoroLength*60];
+    NSDate* expiresOn = [[NSDate alloc] initWithTimeIntervalSinceNow:config.pomodoroLength * SECONDS_IN_A_MINUTE];
 
     self = [super initWithType:POMODORO expiringOn:expiresOn];
    

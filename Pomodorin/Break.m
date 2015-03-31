@@ -18,7 +18,7 @@
         breakMinutes = config.longBreakLength;
     }
     
-    NSDate* expiresOn = [[NSDate alloc] initWithTimeIntervalSinceNow:(breakMinutes * 60)];
+    NSDate* expiresOn = [[NSDate alloc] initWithTimeIntervalSinceNow:(breakMinutes * SECONDS_IN_A_MINUTE)];
     
     self = [super initWithType:type expiringOn:expiresOn];
     
