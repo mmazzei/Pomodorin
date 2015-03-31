@@ -15,6 +15,7 @@
 #import "Record.h"
 #import "Summary.h"
 #import "Pomodoro.h"
+#import "Config.h"
 
 @interface PomodoringViewController ()
 @property (strong) NSTimer* refreshStatusTimer;
@@ -33,22 +34,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    switch (self.model.currentTask.type) {
-        case POMODORO:
-            [self.currentTaskImage setImage:[NSImage imageNamed:@"tomato"]];
-            break;
-        case SHORT_BREAK:
-            [self.currentTaskImage setImage:[NSImage imageNamed:@"hourglass"]];
-            [self.interruptionsBox removeFromSuperview];
-            break;
-        case LONG_BREAK:
-            [self.currentTaskImage setImage:[NSImage imageNamed:@"dark_hourglass"]];
-            [self.interruptionsBox removeFromSuperview];
-            break;
-        default:
-            [self.currentTaskImage setImage:[NSImage imageNamed:@"tomato"]];
-            break;
+    [self.currentTaskImage setImage:[NSImage imageNamed:[self.model.config imageNameFor:self.model.currentTask.type]]];
+
+    if (self.model.currentTask.type != POMODORO) {
+        [self.interruptionsBox removeFromSuperview];
     }
     
     [self scheduleNotificationForTheEndOfCurrentTask];

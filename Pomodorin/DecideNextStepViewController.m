@@ -13,6 +13,7 @@
 #import "TodayStatus.h"
 #import "TimeBox.h"
 #import "Record.h"
+#import "Config.h"
 
 @interface DecideNextStepViewController ()
 @property (weak) IBOutlet NSButton *recommendedActionButton;
@@ -30,61 +31,61 @@
     [super viewDidLoad];
     // To avoid a strong reference cycle
     DecideNextStepViewController* __weak tmpSelf = self;
-
-    // If recommended timebox is Pomodoro then
-    //   - recommendedActionButton => Starts a Pomodoro
-    //   - startOption1Button => Starts a Short Break
-    //   - startOption2Button => Start a Long Break
-    //
-    if ([self.model recommendedTimebox].type == POMODORO) {
-        self.recommendedActionButton.image = [NSImage imageNamed:@"tomato"];
-        self.recommendedActionButton.toolTip = @"Start a Pomodoro";
-        self.recommendedActionBlock = ^(id sender){[tmpSelf startPomodoro:sender];};
-
-        self.startOption1Button.image = [NSImage imageNamed:@"hourglass"];
-        self.startOption1Button.toolTip = @"Start a Short Break";
-        self.startOption1Block = ^(id sender){[tmpSelf startShortBreak:sender];};
-
-        self.startOption2Button.image = [NSImage imageNamed:@"dark_hourglass"];
-        self.startOption2Button.toolTip = @"Start a Long Break";
-        self.startOption2Block = ^(id sender){[tmpSelf startLongBreak:sender];};
-    }
     
-    // If recommended timebox is Short Break then
-    //   - recommendedActionButton => Starts a Short Break
-    //   - startOption1Button => Starts a Pomodoro
-    //   - startOption2Button => Start a Long Break
-    //
-    else if ([self.model recommendedTimebox].type == SHORT_BREAK) {
-        self.recommendedActionButton.image = [NSImage imageNamed:@"hourglass"];
-        self.recommendedActionButton.toolTip = @"Start a Short Break";
-        self.recommendedActionBlock = ^(id sender){[tmpSelf startShortBreak:sender];};
-        
-        self.startOption1Button.image = [NSImage imageNamed:@"tomato"];
-        self.startOption1Button.toolTip = @"Start a Pomodoro";
-        self.startOption1Block = ^(id sender){[tmpSelf startPomodoro:sender];};
-        
-        self.startOption2Button.image = [NSImage imageNamed:@"dark_hourglass"];
-        self.startOption2Button.toolTip = @"Start a Long Break";
-        self.startOption2Block = ^(id sender){[tmpSelf startLongBreak:sender];};
-    }
-
-    // If recommended timebox is Short Break then
-    //   - recommendedActionButton => Starts a Long Break
-    //   - startOption1Button => Starts a Short Break
-    //   - startOption2Button => Start a Pomodoro
-    else if ([self.model recommendedTimebox].type == LONG_BREAK) {
-        self.recommendedActionButton.image = [NSImage imageNamed:@"dark_hourglass"];
-        self.recommendedActionButton.toolTip = @"Start a Long Break";
-        self.recommendedActionBlock = ^(id sender){[tmpSelf startLongBreak:sender];};
-        
-        self.startOption1Button.image = [NSImage imageNamed:@"hourglass"];
-        self.startOption1Button.toolTip = @"Start a Short Break";
-        self.startOption1Block = ^(id sender){[tmpSelf startShortBreak:sender];};
-        
-        self.startOption2Button.image = [NSImage imageNamed:@"tomato"];
-        self.startOption2Button.toolTip = @"Start a Pomodoro";
-        self.startOption2Block = ^(id sender){[tmpSelf startPomodoro:sender];};
+    switch ([self.model recommendedTimebox].type) {
+        case SHORT_BREAK: {
+            // If recommended timebox is Short Break then
+            //   - recommendedActionButton => Starts a Short Break
+            //   - startOption1Button => Starts a Pomodoro
+            //   - startOption2Button => Start a Long Break
+            self.recommendedActionButton.image = [NSImage imageNamed:[self.model.config imageNameFor:SHORT_BREAK]];
+            self.recommendedActionButton.toolTip = @"Start a Short Break";
+            self.recommendedActionBlock = ^(id sender){[tmpSelf startShortBreak:sender];};
+            
+            self.startOption1Button.image = [NSImage imageNamed:[self.model.config imageNameFor:POMODORO]];
+            self.startOption1Button.toolTip = @"Start a Pomodoro";
+            self.startOption1Block = ^(id sender){[tmpSelf startPomodoro:sender];};
+            
+            self.startOption2Button.image = [NSImage imageNamed:[self.model.config imageNameFor:LONG_BREAK]];
+            self.startOption2Button.toolTip = @"Start a Long Break";
+            self.startOption2Block = ^(id sender){[tmpSelf startLongBreak:sender];};
+        }
+        break;
+        case LONG_BREAK: {
+            // If recommended timebox is Short Break then
+            //   - recommendedActionButton => Starts a Long Break
+            //   - startOption1Button => Starts a Short Break
+            //   - startOption2Button => Start a Pomodoro
+            self.recommendedActionButton.image = [NSImage imageNamed:[self.model.config imageNameFor:LONG_BREAK]];
+            self.recommendedActionButton.toolTip = @"Start a Long Break";
+            self.recommendedActionBlock = ^(id sender){[tmpSelf startLongBreak:sender];};
+            
+            self.startOption1Button.image = [NSImage imageNamed:[self.model.config imageNameFor:SHORT_BREAK]];
+            self.startOption1Button.toolTip = @"Start a Short Break";
+            self.startOption1Block = ^(id sender){[tmpSelf startShortBreak:sender];};
+            
+            self.startOption2Button.image = [NSImage imageNamed:[self.model.config imageNameFor:POMODORO]];
+            self.startOption2Button.toolTip = @"Start a Pomodoro";
+            self.startOption2Block = ^(id sender){[tmpSelf startPomodoro:sender];};
+        }
+        break;
+        default:{
+            // If recommended timebox is Pomodoro or unknown then
+            //   - recommendedActionButton => Starts a Pomodoro
+            //   - startOption1Button => Starts a Short Break
+            //   - startOption2Button => Start a Long Break
+            self.recommendedActionButton.image = [NSImage imageNamed:[self.model.config imageNameFor:POMODORO]];
+            self.recommendedActionButton.toolTip = @"Start a Pomodoro";
+            self.recommendedActionBlock = ^(id sender){[tmpSelf startPomodoro:sender];};
+            
+            self.startOption1Button.image = [NSImage imageNamed:[self.model.config imageNameFor:SHORT_BREAK]];
+            self.startOption1Button.toolTip = @"Start a Short Break";
+            self.startOption1Block = ^(id sender){[tmpSelf startShortBreak:sender];};
+            
+            self.startOption2Button.image = [NSImage imageNamed:[self.model.config imageNameFor:LONG_BREAK]];
+            self.startOption2Button.toolTip = @"Start a Long Break";
+            self.startOption2Block = ^(id sender){[tmpSelf startLongBreak:sender];};
+        }
     }
 }
 - (IBAction)startRecommended:(id)sender {
