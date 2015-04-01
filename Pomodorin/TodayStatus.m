@@ -31,6 +31,7 @@
         _config = [[Config alloc] init];
         _session = [[Session alloc] init];
         _session.config = _config;
+        _automaticMode = FALSE;
     }
     
     return self;
@@ -48,6 +49,7 @@
         _session.config = _config;
 
         _currentTask = [decoder decodeObjectForKey:@"currentTask"];
+        _automaticMode = [decoder decodeBoolForKey:@"automaticMode"];
     }
     
     return self;
@@ -58,6 +60,7 @@
     [coder encodeObject:self.record forKey:@"record"];
     [coder encodeObject:self.session forKey:@"session"];
     [coder encodeObject:self.currentTask forKey:@"currentTask"];
+    [coder encodeBool:self.automaticMode forKey:@"automaticMode"];
 }
 
 -(Record*) record {

@@ -16,6 +16,7 @@
 @interface TodayStatus : NSObject <NSCoding>
 @property (strong) TimeBox* currentTask;
 @property (strong) Config* config;
+@property (assign) BOOL automaticMode;
 
 -(Record*) record;
 -(TimeBox*) recommendedTimebox;

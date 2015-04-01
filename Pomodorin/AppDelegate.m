@@ -82,6 +82,15 @@
     return YES;
 }
 
+// Sent to the delegate when a notification delivery date has arrived.
+- (void)userNotificationCenter:(NSUserNotificationCenter *)center didDeliverNotification:(NSUserNotification *)notification {
+    if ([self.window isMiniaturized]) {
+        [self switchToPomodoringView];
+        [self.window deminiaturize:self];
+    }
+    [center removeAllDeliveredNotifications];
+}
+
 // "Preferences" menu item activated.
 - (IBAction)showPreferences:(id)sender {
     [self showPreferencesWindow];

@@ -27,6 +27,22 @@
 
 @implementation DecideNextStepViewController
 
+- (void)viewDidAppear {
+    if (self.model.automaticMode) {
+        switch (self.model.recommendedTimebox.type) {
+            case POMODORO: [self.model startAPomodoro]; break;
+            case SHORT_BREAK: [self.model startAShortBreak]; break;
+            case LONG_BREAK: [self.model startALongBreak]; break;
+        }
+        
+        id delegate = [NSApp delegate];
+        [delegate switchToPomodoringView];
+    }
+    else {
+        [self.view setHidden:FALSE];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // To avoid a strong reference cycle
@@ -87,6 +103,12 @@
             self.startOption2Block = ^(id sender){[tmpSelf startLongBreak:sender];};
         }
     }
+    
+    // Set hidden because, when the view appear, I'll decide if switch or not
+    // to another view, based on the Auto-Mode flag.
+    // I cannot do that because cannot switch view from didLoad (this view is not
+    // replaced by the another but appended).
+    [self.view setHidden:TRUE];
 }
 - (IBAction)startRecommended:(id)sender {
     NSLog(@"'Start Recommended' button pressed");
