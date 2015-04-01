@@ -10,6 +10,7 @@
 		9A36D0961AC58F6100B74EFF /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A36D0941AC58F6100B74EFF /* PreferencesWindowController.m */; };
 		9A36D0971AC58F6100B74EFF /* PreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A36D0951AC58F6100B74EFF /* PreferencesWindowController.xib */; };
 		9A36D09A1AC597E500B74EFF /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A36D0991AC597E500B74EFF /* Config.m */; };
+		9A485CAE1ACC2469000DA37D /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A485CAD1ACC2469000DA37D /* Session.m */; };
 		9A597C3B1AC32F41002648A6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A597C3A1AC32F41002648A6 /* AppDelegate.m */; };
 		9A597C3D1AC32F41002648A6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A597C3C1AC32F41002648A6 /* main.m */; };
 		9A597C3F1AC32F41002648A6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A597C3E1AC32F41002648A6 /* Images.xcassets */; };
@@ -49,6 +50,8 @@
 		9A36D0951AC58F6100B74EFF /* PreferencesWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesWindowController.xib; sourceTree = "<group>"; };
 		9A36D0981AC597E500B74EFF /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		9A36D0991AC597E500B74EFF /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
+		9A485CAC1ACC2469000DA37D /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
+		9A485CAD1ACC2469000DA37D /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
 		9A597C341AC32F41002648A6 /* Pomodorin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomodorin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A597C381AC32F41002648A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A597C391AC32F41002648A6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -184,6 +187,8 @@
 				9A597C5B1AC32FC5002648A6 /* Break.m */,
 				9A36D0981AC597E500B74EFF /* Config.h */,
 				9A36D0991AC597E500B74EFF /* Config.m */,
+				9A485CAC1ACC2469000DA37D /* Session.h */,
+				9A485CAD1ACC2469000DA37D /* Session.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -327,6 +332,7 @@
 				9A597C6D1AC32FEC002648A6 /* TimeBox.m in Sources */,
 				9A597C3D1AC32F41002648A6 /* main.m in Sources */,
 				9A36D0961AC58F6100B74EFF /* PreferencesWindowController.m in Sources */,
+				9A485CAE1ACC2469000DA37D /* Session.m in Sources */,
 				9A597C6B1AC32FEC002648A6 /* Record.m in Sources */,
 				9A597C3B1AC32F41002648A6 /* AppDelegate.m in Sources */,
 				9A597C721AC3300E002648A6 /* DecideNextStepViewController.m in Sources */,

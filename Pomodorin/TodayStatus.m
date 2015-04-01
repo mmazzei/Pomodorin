@@ -13,12 +13,12 @@
 #import "Break.h"
 #import "Record.h"
 #import "Config.h"
+#import "Session.h"
 
-static const NSUInteger MAX_TIMEBOXES_TO_REMEMBER_FOR_AUTO_MODE = 7;
 
 @interface TodayStatus ()
 @property (strong, readonly) Record* theRecord;
-@property (strong) NSMutableArray* lastFinishedTimeboxes;
+@property (strong, readonly) Session* session;
 @end
 
 @implementation TodayStatus
@@ -29,7 +29,8 @@ static const NSUInteger MAX_TIMEBOXES_TO_REMEMBER_FOR_AUTO_MODE = 7;
     if (self) {
         _theRecord = [[Record alloc] init];
         _config = [[Config alloc] init];
-        _lastFinishedTimeboxes = [NSMutableArray arrayWithCapacity:MAX_TIMEBOXES_TO_REMEMBER_FOR_AUTO_MODE];
+        _session = [[Session alloc] init];
+        _session.config = _config;
     }
     
     return self;
@@ -42,11 +43,10 @@ static const NSUInteger MAX_TIMEBOXES_TO_REMEMBER_FOR_AUTO_MODE = 7;
         _theRecord = [decoder decodeObjectForKey:@"record"];
         if (! _theRecord) _theRecord = [[Record alloc] init];
         
-        _lastFinishedTimeboxes = [decoder decodeObjectForKey:@"lastFinishedTimeboxes"];
-        if (!_lastFinishedTimeboxes) {
-            _lastFinishedTimeboxes = [NSMutableArray arrayWithCapacity:MAX_TIMEBOXES_TO_REMEMBER_FOR_AUTO_MODE];
-        }
-        
+        _session = [decoder decodeObjectForKey:@"session"];
+        if (!_session) _session = [[Session alloc] init];
+        _session.config = _config;
+
         _currentTask = [decoder decodeObjectForKey:@"currentTask"];
     }
     
@@ -56,7 +56,7 @@ static const NSUInteger MAX_TIMEBOXES_TO_REMEMBER_FOR_AUTO_MODE = 7;
 -(void) encodeWithCoder:(NSCoder *)coder {
     NSLog(@"Encoding TodayStatus with coder");
     [coder encodeObject:self.record forKey:@"record"];
-    [coder encodeObject:self.lastFinishedTimeboxes forKey:@"lastFinishedTimeboxes"];
+    [coder encodeObject:self.session forKey:@"session"];
     [coder encodeObject:self.currentTask forKey:@"currentTask"];
 }
 
@@ -64,50 +64,11 @@ static const NSUInteger MAX_TIMEBOXES_TO_REMEMBER_FOR_AUTO_MODE = 7;
     [self recordCurrentTaskIfFinished];
     return self.theRecord;
 }
-
-// The heuristic is basic:
-//   - After a pomodoro allways recommend a break (short or long)
-//   - After a break (short or long) allways recommend a pomodoro
-//   - Recommend short breaks except in the case of the succession:
-//        (Pomodoro-ShortBreak)x3-Pomodoro
-//     In that case, recommend a long break
+            
 -(TimeBox*) recommendedTimebox {
-    TimeBox * recommendation = nil;
-    TimeBox* lastTimebox = self.lastFinishedTimeboxes.lastObject;
-
-    if ((lastTimebox.type == SHORT_BREAK) || (lastTimebox.type == LONG_BREAK)) {
-        NSLog(@"Last timebox is a break => Recommend a pomodoro");
-        recommendation = [[Pomodoro alloc] initWithConfig:self.config];
-    }
-    else  if (self.lastFinishedTimeboxes.count == MAX_TIMEBOXES_TO_REMEMBER_FOR_AUTO_MODE) {
-        // Recommend long-break timebox if P-S-P-S-P-S-P
-        // Do not need to check if the lastTimebox is a pomodoro because
-        // in the previous if we checked for the other two posibilites, so
-        // we know that if are here, IS a pomodoro.
-        if ([self pomodoroAndShortBreakIn:self.lastFinishedTimeboxes at:0 repetitions:3]) {
-            NSLog(@"Three series of [Pomodoro,ShortBreak] and a Pomodoro => Recommend a long break");
-            recommendation = [[Break alloc] initWithType:LONG_BREAK andConfig:self.config];
-        }
-    }
-    else {
-        // Short-break timebox in other case
-        NSLog(@"Last timebox is a pomodoro, without any previous valid pattern => Recommend a short break");
-        recommendation =  [[Break alloc] initWithType:SHORT_BREAK andConfig:self.config];
-    }
-    return recommendation;
+    return [self.session recommendedTimebox];
 }
 
-// Returns true only if there are the number of repetitions of
-// [Pomodoro,ShortBreak] in the array, counting from the given
-// index.
--(BOOL) pomodoroAndShortBreakIn:(NSArray*)array at:(NSUInteger)index repetitions:(NSUInteger)count{
-    if (count == 0) return TRUE;
-    TimeBox* firstElem = array[index];
-    TimeBox* secondElem = array[index+1];
-    
-    return (firstElem.type == POMODORO) && (secondElem.type == SHORT_BREAK) && [self pomodoroAndShortBreakIn:array at:index+2 repetitions:count-1];
-}
-        
 -(void) discardCurrentTimebox {
     self.currentTask = nil;
 }
@@ -129,12 +90,7 @@ static const NSUInteger MAX_TIMEBOXES_TO_REMEMBER_FOR_AUTO_MODE = 7;
 
 -(void) recordCurrentTaskIfFinished {
     if ([self.currentTask isExpired]) {
-        // The lastFinishedTimeboxes is like a time window, so, when adding
-        // one element to the end, remove the first one.
-        if (self.lastFinishedTimeboxes.count == MAX_TIMEBOXES_TO_REMEMBER_FOR_AUTO_MODE) {
-            [self.lastFinishedTimeboxes removeObjectAtIndex:0];
-        }
-        [self.lastFinishedTimeboxes addObject:self.currentTask];
+        [self.session add:self.currentTask];
         
         // Only record finished pomodoros
         if (self.currentTask.type == POMODORO) {
@@ -142,6 +98,5 @@ static const NSUInteger MAX_TIMEBOXES_TO_REMEMBER_FOR_AUTO_MODE = 7;
         }
         self.currentTask = nil;
     }
-    NSLog(@"#### LAST FINISHED TIMEBOXES NOW: %lu - %@", [self.lastFinishedTimeboxes count], self.lastFinishedTimeboxes);
 }
 @end
