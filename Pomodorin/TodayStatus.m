@@ -66,6 +66,7 @@
 }
             
 -(TimeBox*) recommendedTimebox {
+    [self recordCurrentTaskIfFinished];
     return [self.session recommendedTimebox];
 }
 

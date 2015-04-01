@@ -72,13 +72,6 @@
 {
     NSLog(@"Timer tick");
 
-    // Horrible hack needed to update the model status to get a
-    // valid recommendation when coming to switchToDecideNextStepView.
-    // This is needed because the "[self.model record]" stores the
-    // current task in the "lastFinishedTimeboxes" array.
-    // TODO - URGENT - FIX THIS
-    [self.model record];
-
     if ((!self.model.currentTask) || [self.model.currentTask isExpired]) {
         // And jump to a view to decide what to do next
         id delegate = [NSApp delegate];
