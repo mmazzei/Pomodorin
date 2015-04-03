@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
     </dependencies>
@@ -50,9 +50,9 @@
                             <button identifier="startOption1" toolTip="Start a Short Break" verticalHuggingPriority="750" id="JlS-J5-sO3">
                                 <rect key="frame" x="42" y="41" width="88" height="87"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="smallSquare" alternateTitle="Start a Short Break" bezelStyle="smallSquare" image="hourglass" imagePosition="overlaps" alignment="center" controlSize="mini" state="on" imageScaling="proportionallyUpOrDown" sound="Pop" inset="2" id="Ynv-Ki-jBL">
+                                <buttonCell key="cell" type="smallSquare" alternateTitle="Start a Short Break" bezelStyle="smallSquare" image="hourglass" imagePosition="only" alignment="center" controlSize="mini" state="on" imageScaling="proportionallyUpOrDown" sound="Pop" inset="2" id="Ynv-Ki-jBL">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="miniSystem"/>
+                                    <font key="font" metaFont="system" size="88"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="startOption1:" target="-2" id="UJT-oy-oSy"/>
@@ -63,7 +63,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="smallSquare" alternateTitle="Start a Long Break" bezelStyle="smallSquare" image="dark_hourglass" imagePosition="overlaps" alignment="center" controlSize="mini" state="on" imageScaling="proportionallyUpOrDown" sound="Pop" inset="2" id="Tzj-Ml-exe">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="miniSystem"/>
+                                    <font key="font" metaFont="system" size="88"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="startOption2:" target="-2" id="gaH-8N-wON"/>
@@ -79,8 +79,8 @@
         </customView>
     </objects>
     <resources>
-        <image name="dark_hourglass" width="256" height="256"/>
-        <image name="hourglass" width="256" height="256"/>
+        <image name="dark_hourglass" width="16" height="16"/>
+        <image name="hourglass" width="16" height="16"/>
         <image name="tomato" width="691" height="676"/>
         <sound name="Pop"/>
     </resources>

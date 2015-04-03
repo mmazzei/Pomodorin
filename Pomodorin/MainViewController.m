@@ -21,7 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do view setup here.
+    // This is needed in order to draw a pixelated image
+    [[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationNone];
 }
 
 - (IBAction)startPomodoring:(id)sender {

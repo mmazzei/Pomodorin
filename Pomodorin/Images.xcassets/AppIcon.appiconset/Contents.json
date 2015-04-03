@@ -3,55 +3,47 @@
     {
       "size" : "16x16",
       "idiom" : "mac",
-      "filename" : "tomato_16.png",
+      "filename" : "tomato_16c.png",
       "scale" : "1x"
     },
     {
+      "idiom" : "mac",
       "size" : "16x16",
-      "idiom" : "mac",
-      "filename" : "tomato_32.png",
       "scale" : "2x"
     },
     {
+      "idiom" : "mac",
       "size" : "32x32",
-      "idiom" : "mac",
-      "filename" : "tomato_32-1.png",
       "scale" : "1x"
     },
     {
+      "idiom" : "mac",
       "size" : "32x32",
-      "idiom" : "mac",
-      "filename" : "tomato_64.png",
       "scale" : "2x"
     },
     {
-      "size" : "128x128",
       "idiom" : "mac",
-      "filename" : "tomato_128.png",
+      "size" : "128x128",
       "scale" : "1x"
     },
     {
-      "size" : "128x128",
       "idiom" : "mac",
-      "filename" : "tomato_256-1.png",
+      "size" : "128x128",
       "scale" : "2x"
     },
     {
-      "size" : "256x256",
       "idiom" : "mac",
-      "filename" : "tomato_256.png",
+      "size" : "256x256",
       "scale" : "1x"
     },
     {
-      "size" : "256x256",
       "idiom" : "mac",
-      "filename" : "tomato_512-1.png",
+      "size" : "256x256",
       "scale" : "2x"
     },
     {
+      "idiom" : "mac",
       "size" : "512x512",
-      "idiom" : "mac",
-      "filename" : "tomato_512.png",
       "scale" : "1x"
     },
     {

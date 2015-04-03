@@ -48,6 +48,8 @@
     // To avoid a strong reference cycle
     DecideNextStepViewController* __weak tmpSelf = self;
     
+    // This is needed in order to draw a pixelated image
+   [[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationNone];
     switch ([self.model recommendedTimebox].type) {
         case SHORT_BREAK: {
             // If recommended timebox is Short Break then
