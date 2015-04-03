@@ -48,7 +48,7 @@
                                 </connections>
                             </button>
                             <button identifier="startOption1" toolTip="Start a Short Break" verticalHuggingPriority="750" id="JlS-J5-sO3">
-                                <rect key="frame" x="42" y="41" width="88" height="87"/>
+                                <rect key="frame" x="42" y="37" width="88" height="87"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="smallSquare" alternateTitle="Start a Short Break" bezelStyle="smallSquare" image="hourglass" imagePosition="only" alignment="center" controlSize="mini" state="on" imageScaling="proportionallyUpOrDown" sound="Pop" inset="2" id="Ynv-Ki-jBL">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -59,7 +59,7 @@
                                 </connections>
                             </button>
                             <button identifier="startOption2" toolTip="Start a Long Break" verticalHuggingPriority="750" id="NMX-DT-ytC">
-                                <rect key="frame" x="151" y="41" width="88" height="87"/>
+                                <rect key="frame" x="151" y="37" width="88" height="87"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="smallSquare" alternateTitle="Start a Long Break" bezelStyle="smallSquare" image="dark_hourglass" imagePosition="overlaps" alignment="center" controlSize="mini" state="on" imageScaling="proportionallyUpOrDown" sound="Pop" inset="2" id="Tzj-Ml-exe">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -81,7 +81,7 @@
     <resources>
         <image name="dark_hourglass" width="16" height="16"/>
         <image name="hourglass" width="16" height="16"/>
-        <image name="tomato" width="691" height="676"/>
+        <image name="tomato" width="16" height="16"/>
         <sound name="Pop"/>
     </resources>
 </document>

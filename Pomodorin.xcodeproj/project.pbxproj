@@ -32,6 +32,7 @@
 		9A597C891AC4A160002648A6 /* RecordWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A597C871AC4A160002648A6 /* RecordWindowController.xib */; };
 		9AE08AE81AC5FB5600FC0E5D /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AE08AE71AC5FB5600FC0E5D /* config.json */; };
 		9AE08AEA1AC60D8F00FC0E5D /* model.dat in Resources */ = {isa = PBXBuildFile; fileRef = 9AE08AE91AC60D8F00FC0E5D /* model.dat */; };
+		9AFE5D191ACF0EF400E203CA /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 9AFE5D181ACF0EF400E203CA /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		9AE08AE61AC5F48D00FC0E5D /* GlobalDeclarations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalDeclarations.h; sourceTree = "<group>"; };
 		9AE08AE71AC5FB5600FC0E5D /* config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
 		9AE08AE91AC60D8F00FC0E5D /* model.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = model.dat; sourceTree = "<group>"; };
+		9AFE5D181ACF0EF400E203CA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 		9A597C2B1AC32F41002648A6 = {
 			isa = PBXGroup;
 			children = (
+				9AFE5D181ACF0EF400E203CA /* README.md */,
 				9A597C361AC32F41002648A6 /* Pomodorin */,
 				9A597C4A1AC32F41002648A6 /* PomodorinTests */,
 				9A597C351AC32F41002648A6 /* Products */,
@@ -327,6 +330,7 @@
 				9A597C6A1AC32FEC002648A6 /* Pomodoro.m in Sources */,
 				9A597C881AC4A160002648A6 /* RecordWindowController.m in Sources */,
 				9A597C5E1AC32FC5002648A6 /* Break.m in Sources */,
+				9AFE5D191ACF0EF400E203CA /* README.md in Sources */,
 				9A597C7C1AC3301D002648A6 /* PomodoringViewController.m in Sources */,
 				9A36D09A1AC597E500B74EFF /* Config.m in Sources */,
 				9A597C6D1AC32FEC002648A6 /* TimeBox.m in Sources */,
