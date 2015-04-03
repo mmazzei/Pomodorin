@@ -30,6 +30,7 @@
 		9A597C7D1AC3301D002648A6 /* PomodoringViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A597C791AC3301D002648A6 /* PomodoringViewController.xib */; };
 		9A597C881AC4A160002648A6 /* RecordWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A597C861AC4A160002648A6 /* RecordWindowController.m */; };
 		9A597C891AC4A160002648A6 /* RecordWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A597C871AC4A160002648A6 /* RecordWindowController.xib */; };
+		9ABBB91B1ACF29D3001E64C2 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9ABBB91A1ACF29D3001E64C2 /* LICENSE.txt */; };
 		9AE08AE81AC5FB5600FC0E5D /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AE08AE71AC5FB5600FC0E5D /* config.json */; };
 		9AE08AEA1AC60D8F00FC0E5D /* model.dat in Resources */ = {isa = PBXBuildFile; fileRef = 9AE08AE91AC60D8F00FC0E5D /* model.dat */; };
 		9AFE5D191ACF0EF400E203CA /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 9AFE5D181ACF0EF400E203CA /* README.md */; };
@@ -87,6 +88,7 @@
 		9A597C851AC4A160002648A6 /* RecordWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordWindowController.h; sourceTree = "<group>"; };
 		9A597C861AC4A160002648A6 /* RecordWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordWindowController.m; sourceTree = "<group>"; };
 		9A597C871AC4A160002648A6 /* RecordWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordWindowController.xib; sourceTree = "<group>"; };
+		9ABBB91A1ACF29D3001E64C2 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		9AE08AE61AC5F48D00FC0E5D /* GlobalDeclarations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalDeclarations.h; sourceTree = "<group>"; };
 		9AE08AE71AC5FB5600FC0E5D /* config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
 		9AE08AE91AC60D8F00FC0E5D /* model.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = model.dat; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 		9A597C2B1AC32F41002648A6 = {
 			isa = PBXGroup;
 			children = (
+				9ABBB91A1ACF29D3001E64C2 /* LICENSE.txt */,
 				9AFE5D181ACF0EF400E203CA /* README.md */,
 				9A597C361AC32F41002648A6 /* Pomodorin */,
 				9A597C4A1AC32F41002648A6 /* PomodorinTests */,
@@ -306,6 +309,7 @@
 				9A597C7D1AC3301D002648A6 /* PomodoringViewController.xib in Resources */,
 				9A597C7B1AC3301D002648A6 /* MainViewController.xib in Resources */,
 				9A36D0971AC58F6100B74EFF /* PreferencesWindowController.xib in Resources */,
+				9ABBB91B1ACF29D3001E64C2 /* LICENSE.txt in Resources */,
 				9A597C891AC4A160002648A6 /* RecordWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
