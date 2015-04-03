@@ -9,6 +9,11 @@ So, when looking for a simple timer for this technique, including some features 
 As couldn't find anything free, implemented this one.
 
 
+# Download
+
+Checkout the most recent release [here](https://github.com/mmazzei/Pomodorin/releases).
+
+
 # Usage
 
 The UI target is to be simple and clear. If you allways click at the big image at the center, it will do what you need most of the time.
@@ -42,6 +47,34 @@ Long break:
 
 ## How to stop a pomodori or break?
 The small "-" button at the bottom of the screen is what you want.
+
+
+# FAQ
+
+## What is the meaning of the version name?
+
+"A mi me anda" is a common software developer excuse. The meaning in english is: "It works for me".
+
+If you are a programmer and need some ideas for your excuses, there are a nice site can be helpful for you: [programmingexcuses.com](http://programmingexcuses.com).
+
+If you are not a programmer, do as if you never read this part. We do not invent excuses, that phrases are true comments from the soul!
+
+
+## Why this page, the code and the UI are so bad written?
+
+English is not my main language (good excuse!). Hope to have a collaborator to improve this in order to remove this question from here.
+
+
+## How do you do to have a FAQ if there are no users yet?
+
+Ok, I invented the questions to fill some space here.
+
+Was about that or sit and write the next awesome Pomodorin feature.
+
+
+## Why the Pomodorin application is so bad?
+
+Is not the final version yet, is in alpha status. It lacks features and have plenty of bugs.
 
 
 # Feedback
