@@ -16,9 +16,12 @@
   NSInteger breakMinutes = config.shortBreakLength;
   NSDate *expiresOn = [[NSDate alloc] initWithTimeIntervalSinceNow:(breakMinutes * SECONDS_IN_A_MINUTE)];
 
-  self = [super initWithType:SHORT_BREAK expiringOn:expiresOn];
+  self = [super initExpiringOn:expiresOn];
 
   return self;
 }
 
+- (TaskType) type {
+  return SHORT_BREAK;
+}
 @end

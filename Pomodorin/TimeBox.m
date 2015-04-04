@@ -11,11 +11,10 @@
 
 @implementation TimeBox
 
-- (id)initWithType:(int)taskType expiringOn:(NSDate *)date {
+- (id)initExpiringOn:(NSDate *)date {
   self = [super init];
 
   if (self) {
-    _type = taskType;
     _expiresOn = date;
   }
 
@@ -26,7 +25,6 @@
   NSLog(@"Initializing TimeBox with decoder");
   self = [super init];
   if (self) {
-    _type = [decoder decodeIntForKey:@"type"];
     _expiresOn = [decoder decodeObjectForKey:@"expiresOn"];
   }
   return self;
@@ -34,7 +32,6 @@
 
 - (void)encodeWithCoder:(NSCoder *)coder {
   NSLog(@"Encoding TimeBox with coder");
-  [coder encodeInt:self.type forKey:@"type"];
   [coder encodeObject:self.expiresOn forKey:@"expiresOn"];
 }
 

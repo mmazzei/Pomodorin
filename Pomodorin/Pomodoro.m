@@ -33,8 +33,12 @@
   // Expires on X minutes from now
   NSDate *expiresOn = [[NSDate alloc] initWithTimeIntervalSinceNow:config.pomodoroLength * SECONDS_IN_A_MINUTE];
 
-  self = [super initWithType:POMODORO expiringOn:expiresOn];
+  self = [super initExpiringOn:expiresOn];
 
   return self;
+}
+
+- (TaskType) type {
+  return POMODORO;
 }
 @end
