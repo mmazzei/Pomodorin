@@ -10,12 +10,10 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, NSUserNotificationCenterDelegate>
 
-
-- (void) switchToMainView;
-- (void) switchToPomodoringView;
-- (void) switchToDecideNextStepView;
-- (void) showRecordWindow;
-- (void) showPreferencesWindow;
+- (void)switchToMainView;
+- (void)switchToPomodoringView;
+- (void)switchToDecideNextStepView;
+- (void)showRecordWindow;
+- (void)showPreferencesWindow;
 
 @end
-
