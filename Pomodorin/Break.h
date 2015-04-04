@@ -11,5 +11,5 @@
 @class Config;
 
 @interface Break : TimeBox
-- (id) initWithType:(TaskType) type andConfig:(Config*)config;
+- (id)initWithType:(TaskType)type andConfig:(Config *)config;
 @end

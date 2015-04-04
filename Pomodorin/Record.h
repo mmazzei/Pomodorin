@@ -12,10 +12,10 @@
 
 // Contains the summary day by day
 @interface Record : NSObject <NSCoding>
-@property (strong, readonly) NSMutableDictionary* record;
+@property(strong, readonly) NSMutableDictionary *record;
 
--(void) add:(Pomodoro*)pomodoro at:(NSDate*)day;
--(Summary*) summaryAt:(NSDate*)day;
+- (void)add:(Pomodoro *)pomodoro at:(NSDate *)day;
+- (Summary *)summaryAt:(NSDate *)day;
 
--(NSString*) print;
+- (NSString *)print;
 @end

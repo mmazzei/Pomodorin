@@ -8,15 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-// This didn't worked, producing "Class 'Pomodoro'defined without specifying a base class" error message.
+// This didn't worked, producing "Class 'Pomodoro'defined without specifying a
+// base class" error message.
 // @class CurrentTask;
 // So, I replaced by this import:
 #import "TimeBox.h"
 @class Config;
 
 @interface Pomodoro : TimeBox <NSCoding>
-@property (assign) int internalInterruptions;
-@property (assign) int externalInterruptions;
+@property(assign) int internalInterruptions;
+@property(assign) int externalInterruptions;
 
--(id) initWithConfig:(Config*) config;
+- (id)initWithConfig:(Config *)config;
 @end

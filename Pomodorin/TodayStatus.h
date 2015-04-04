@@ -12,18 +12,19 @@
 @class Config;
 
 // This class behaves mainly as an app context object
-// Should be renamed to reflect that and do not confound with "today only" status
+// Should be renamed to reflect that and do not confound with "today only"
+// status
 @interface TodayStatus : NSObject <NSCoding>
-@property (strong) TimeBox* currentTask;
-@property (strong) Config* config;
-@property (assign) BOOL automaticMode;
+@property(strong) TimeBox *currentTask;
+@property(strong) Config *config;
+@property(assign) BOOL automaticMode;
 
--(Record*) record;
--(TimeBox*) recommendedTimebox;
+- (Record *)record;
+- (TimeBox *)recommendedTimebox;
 
--(void) discardCurrentTimebox;
+- (void)discardCurrentTimebox;
 
--(void) startAPomodoro;
--(void) startAShortBreak;
--(void) startALongBreak;
+- (void)startAPomodoro;
+- (void)startAShortBreak;
+- (void)startALongBreak;
 @end

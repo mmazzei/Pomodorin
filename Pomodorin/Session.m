@@ -11,7 +11,6 @@
 #import "Pomodoro.h"
 #import "Break.h"
 
-
 // Number of timeboxes needed for the recommend heuristic
 static const NSUInteger MAX_TIMEBOXES_TO_REMEMBER = 7;
 
@@ -27,64 +26,63 @@ static const NSUInteger MAX_TIMEBOXES_TO_REMEMBER = 7;
 // IN MINUTES
 static const NSUInteger MAX_TIME_TO_REMEMBER = 60;
 
-
 @interface Session ()
-@property (strong) NSMutableArray* lastFinishedTimeboxes;
+@property(strong) NSMutableArray *lastFinishedTimeboxes;
 @end
 
 @implementation Session
--(id) init {
-    self = [super init];
-    
-    if (self) {
-        _lastFinishedTimeboxes = [NSMutableArray arrayWithCapacity:MAX_TIMEBOXES_TO_REMEMBER];
-    }
-    
-    return self;
+- (id)init {
+  self = [super init];
+
+  if (self) {
+    _lastFinishedTimeboxes = [NSMutableArray arrayWithCapacity:MAX_TIMEBOXES_TO_REMEMBER];
+  }
+
+  return self;
 }
 
--(id) initWithCoder:(NSCoder *)decoder {
-    NSLog(@"Initializing Session with decoder");
-    self = [super init];
-    if (self) {
-        _lastFinishedTimeboxes = [decoder decodeObjectForKey:@"lastFinishedTimeboxes"];
-        if (!_lastFinishedTimeboxes) {
-            _lastFinishedTimeboxes = [NSMutableArray arrayWithCapacity:MAX_TIMEBOXES_TO_REMEMBER];
-        }
+- (id)initWithCoder:(NSCoder *)decoder {
+  NSLog(@"Initializing Session with decoder");
+  self = [super init];
+  if (self) {
+    _lastFinishedTimeboxes = [decoder decodeObjectForKey:@"lastFinishedTimeboxes"];
+    if (!_lastFinishedTimeboxes) {
+      _lastFinishedTimeboxes = [NSMutableArray arrayWithCapacity:MAX_TIMEBOXES_TO_REMEMBER];
     }
-    
-    return self;
+  }
+
+  return self;
 }
 
--(void) encodeWithCoder:(NSCoder *)coder {
-    NSLog(@"Encoding Session with coder");
-    [coder encodeObject:self.lastFinishedTimeboxes forKey:@"lastFinishedTimeboxes"];
+- (void)encodeWithCoder:(NSCoder *)coder {
+  NSLog(@"Encoding Session with coder");
+  [coder encodeObject:self.lastFinishedTimeboxes forKey:@"lastFinishedTimeboxes"];
 }
 
--(NSUInteger) ageInMinutes {
-    NSUInteger age = 0;
-    
-    if ( [self.lastFinishedTimeboxes count] > 0 ) {
-        TimeBox* lastTimebox = [self.lastFinishedTimeboxes lastObject];
-        NSDate* now = [NSDate date];
-        NSCalendar *calendar = [NSCalendar currentCalendar];
-        NSDateComponents *difference = [calendar components:NSCalendarUnitMinute
-                                                   fromDate:lastTimebox.expiresOn
-                                                     toDate:now
-                                                    options:0];
-        age = [difference minute];
-    }
-    
-    return age;
+- (NSUInteger)ageInMinutes {
+  NSUInteger age = 0;
+
+  if ([self.lastFinishedTimeboxes count] > 0) {
+    TimeBox *lastTimebox = [self.lastFinishedTimeboxes lastObject];
+    NSDate *now = [NSDate date];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *difference = [calendar components:NSCalendarUnitMinute
+                                               fromDate:lastTimebox.expiresOn
+                                                 toDate:now
+                                                options:0];
+    age = [difference minute];
+  }
+
+  return age;
 }
 
--(void) add:(TimeBox*)timeBox{
-    // The lastFinishedTimeboxes is like a time window, so, when adding
-    // one element to the end, remove the first one.
-    if (self.lastFinishedTimeboxes.count == MAX_TIMEBOXES_TO_REMEMBER) {
-        [self.lastFinishedTimeboxes removeObjectAtIndex:0];
-    }
-    [self.lastFinishedTimeboxes addObject:timeBox];
+- (void)add:(TimeBox *)timeBox {
+  // The lastFinishedTimeboxes is like a time window, so, when adding
+  // one element to the end, remove the first one.
+  if (self.lastFinishedTimeboxes.count == MAX_TIMEBOXES_TO_REMEMBER) {
+    [self.lastFinishedTimeboxes removeObjectAtIndex:0];
+  }
+  [self.lastFinishedTimeboxes addObject:timeBox];
 }
 
 // The heuristic is basic:
@@ -93,50 +91,52 @@ static const NSUInteger MAX_TIME_TO_REMEMBER = 60;
 //   - Recommend short breaks except in the case of the succession:
 //        (Pomodoro-ShortBreak)x3-Pomodoro
 //     In that case, recommend a long break
--(TimeBox*) recommendedTimebox {
-    [self forgotTimeboxesIfTooOld];
-    TimeBox * recommendation = nil;
-    TimeBox* lastTimebox = self.lastFinishedTimeboxes.lastObject;
-    
-    if ( !lastTimebox || (lastTimebox.type == SHORT_BREAK) || (lastTimebox.type == LONG_BREAK)) {
-        NSLog(@"No timeboxes executed during this session, or last timebox is a break => Recommend a pomodoro");
-        recommendation = [[Pomodoro alloc] initWithConfig:self.config];
-    }
-    // Recommend long-break timebox if P-S-P-S-P-S-P
-    // Do not need to check if the lastTimebox is a pomodoro because
-    // in the previous if we checked for the other two posibilites, so
-    // we know that if are here, IS a pomodoro.
-    else  if ((self.lastFinishedTimeboxes.count == MAX_TIMEBOXES_TO_REMEMBER) &&
-              [self pomodoroAndShortBreakIn:self.lastFinishedTimeboxes at:0 repetitions:3]){
-        NSLog(@"Three series of [Pomodoro,ShortBreak] and a Pomodoro => Recommend a long break");
-        recommendation = [[Break alloc] initWithType:LONG_BREAK andConfig:self.config];
-    }
-    else {
-        // Short-break timebox in other case
-        NSLog(@"Last timebox is a pomodoro, without any previous valid pattern => Recommend a short break");
-        recommendation =  [[Break alloc] initWithType:SHORT_BREAK andConfig:self.config];
-    }
-    return recommendation;
-}
+- (TimeBox *)recommendedTimebox {
+  [self forgotTimeboxesIfTooOld];
+  TimeBox *recommendation = nil;
+  TimeBox *lastTimebox = self.lastFinishedTimeboxes.lastObject;
 
+  if (!lastTimebox || (lastTimebox.type == SHORT_BREAK) || (lastTimebox.type == LONG_BREAK)) {
+    NSLog(@"No timeboxes executed during this session, or last timebox is a break => Recommend a pomodoro");
+    recommendation = [[Pomodoro alloc] initWithConfig:self.config];
+  }
+  // Recommend long-break timebox if P-S-P-S-P-S-P
+  // Do not need to check if the lastTimebox is a pomodoro because
+  // in the previous if we checked for the other two posibilites, so
+  // we know that if are here, IS a pomodoro.
+  else if ((self.lastFinishedTimeboxes.count == MAX_TIMEBOXES_TO_REMEMBER) &&
+           [self pomodoroAndShortBreakIn:self.lastFinishedTimeboxes at:0 repetitions:3]) {
+    NSLog(@"Three series of [Pomodoro,ShortBreak] and a Pomodoro => Recommend a long break");
+    recommendation = [[Break alloc] initWithType:LONG_BREAK andConfig:self.config];
+  } else {
+    // Short-break timebox in other case
+    NSLog(@"Last timebox is a pomodoro, without any previous valid pattern => Recommend a short break");
+    recommendation = [[Break alloc] initWithType:SHORT_BREAK andConfig:self.config];
+  }
+  return recommendation;
+}
 
 // Returns true only if there are the number of repetitions of
 // [Pomodoro,ShortBreak] in the array, counting from the given
 // index.
--(BOOL) pomodoroAndShortBreakIn:(NSArray*)array at:(NSUInteger)index repetitions:(NSUInteger)count{
-    if (count == 0) return TRUE;
-    TimeBox* firstElem = array[index];
-    TimeBox* secondElem = array[index+1];
-    
-    return (firstElem.type == POMODORO) && (secondElem.type == SHORT_BREAK) && [self pomodoroAndShortBreakIn:array at:index+2 repetitions:count-1];
+- (BOOL)pomodoroAndShortBreakIn:(NSArray *)array
+                             at:(NSUInteger)index
+                    repetitions:(NSUInteger)count {
+  if (count == 0) return TRUE;
+  TimeBox *firstElem = array[index];
+  TimeBox *secondElem = array[index + 1];
+
+  return (firstElem.type == POMODORO) && (secondElem.type == SHORT_BREAK) && [self pomodoroAndShortBreakIn:array
+                                    at:index + 2
+                           repetitions:count - 1];
 }
 
--(void) forgotTimeboxesIfTooOld {
-    NSUInteger age = [self ageInMinutes];
-    if (age > MAX_TIME_TO_REMEMBER) {
-        NSLog(@"Forgetting the session because the age is %lu minutes.", age);
-        [self.lastFinishedTimeboxes removeAllObjects];
-    }
+- (void)forgotTimeboxesIfTooOld {
+  NSUInteger age = [self ageInMinutes];
+  if (age > MAX_TIME_TO_REMEMBER) {
+    NSLog(@"Forgetting the session because the age is %lu minutes.", age);
+    [self.lastFinishedTimeboxes removeAllObjects];
+  }
 }
 
 @end

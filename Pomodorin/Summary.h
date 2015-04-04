@@ -13,10 +13,10 @@
 // pomodoros were done, and their interruptions.
 @interface Summary : NSObject <NSCoding>
 
-@property (assign) NSUInteger pomodoros;
-@property (assign) NSUInteger internalInterruptions;
-@property (assign) NSUInteger externalInterruptions;
+@property(assign) NSUInteger pomodoros;
+@property(assign) NSUInteger internalInterruptions;
+@property(assign) NSUInteger externalInterruptions;
 
 // Adds the pomodoro data to the summary
--(void) add:(Pomodoro*)pomodoro;
+- (void)add:(Pomodoro *)pomodoro;
 @end

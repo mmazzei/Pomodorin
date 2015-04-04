@@ -11,35 +11,35 @@
 
 @implementation TimeBox
 
-- (id) initWithType:(int) taskType expiringOn:(NSDate*)date {
-    self = [super init];
-    
-    if (self) {
-        _type = taskType;
-        _expiresOn = date;
-    }
-    
-    return self;
+- (id)initWithType:(int)taskType expiringOn:(NSDate *)date {
+  self = [super init];
+
+  if (self) {
+    _type = taskType;
+    _expiresOn = date;
+  }
+
+  return self;
 }
 
--(id) initWithCoder:(NSCoder *)decoder {
-    NSLog(@"Initializing TimeBox with decoder");
-    self = [super init];
-    if (self) {
-        _type = [decoder decodeIntForKey:@"type"];
-        _expiresOn = [decoder decodeObjectForKey:@"expiresOn"];
-    }
-    return self;
+- (id)initWithCoder:(NSCoder *)decoder {
+  NSLog(@"Initializing TimeBox with decoder");
+  self = [super init];
+  if (self) {
+    _type = [decoder decodeIntForKey:@"type"];
+    _expiresOn = [decoder decodeObjectForKey:@"expiresOn"];
+  }
+  return self;
 }
 
--(void) encodeWithCoder:(NSCoder *)coder {
-    NSLog(@"Encoding TimeBox with coder");
-    [coder encodeInt:self.type forKey:@"type"];
-    [coder encodeObject:self.expiresOn forKey:@"expiresOn"];
+- (void)encodeWithCoder:(NSCoder *)coder {
+  NSLog(@"Encoding TimeBox with coder");
+  [coder encodeInt:self.type forKey:@"type"];
+  [coder encodeObject:self.expiresOn forKey:@"expiresOn"];
 }
 
-- (BOOL) isExpired {
-    return ([self.expiresOn compare:[NSDate date]] != NSOrderedDescending);
+- (BOOL)isExpired {
+  return ([self.expiresOn compare:[NSDate date]] != NSOrderedDescending);
 }
 
 @end

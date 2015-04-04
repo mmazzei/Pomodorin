@@ -11,16 +11,16 @@
 @class TimeBox;
 @class Config;
 
-@interface Session : NSObject  <NSCoding>
-@property (strong) Config* config;
+@interface Session : NSObject <NSCoding>
+@property(strong) Config *config;
 
 // Is equivalent to the age, in minutes, of the last added timebox
--(NSUInteger) ageInMinutes;
+- (NSUInteger)ageInMinutes;
 
 // Register a timebox completion in the session
--(void) add:(TimeBox*)timeBox;
+- (void)add:(TimeBox *)timeBox;
 
 // Taking into account the last various timebox completions,
 // executes an heuristic to recommend the next one to do.
--(TimeBox*) recommendedTimebox;
+- (TimeBox *)recommendedTimebox;
 @end
