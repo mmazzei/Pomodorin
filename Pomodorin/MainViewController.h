@@ -10,5 +10,5 @@
 @class TodayStatus;
 
 @interface MainViewController : NSViewController
-@property (strong) TodayStatus* model;
+@property(strong) TodayStatus *model;
 @end

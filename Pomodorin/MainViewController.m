@@ -20,24 +20,24 @@
 @implementation MainViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    // This is needed in order to draw a pixelated image
-    [[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationNone];
+  [super viewDidLoad];
+  // This is needed in order to draw a pixelated image
+  [[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationNone];
 }
 
 - (IBAction)startPomodoring:(id)sender {
-    NSLog(@"'Start Pomodoring' button pressed");
-    [self.model startAPomodoro];
+  NSLog(@"'Start Pomodoring' button pressed");
+  [self.model startAPomodoro];
 
-    // I'm pretty sure the app delegate is the one I implemented :)
-    id delegate = [NSApp delegate];
-    [delegate switchToPomodoringView];
+  // I'm pretty sure the app delegate is the one I implemented :)
+  id delegate = [NSApp delegate];
+  [delegate switchToPomodoringView];
 }
 
 - (IBAction)seeSummary:(id)sender {
-    NSLog(@"See Summary' button pressed");
-    id delegate = [NSApp delegate];
-    [delegate showRecordWindow];
+  NSLog(@"See Summary' button pressed");
+  id delegate = [NSApp delegate];
+  [delegate showRecordWindow];
 }
 
 @end

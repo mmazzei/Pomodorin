@@ -10,6 +10,6 @@
 @class TodayStatus;
 
 @interface PomodoringViewController : NSViewController
-@property (strong) TodayStatus* model;
+@property(strong) TodayStatus *model;
 
 @end

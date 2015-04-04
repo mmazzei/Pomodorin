@@ -10,14 +10,14 @@
 @class TodayStatus;
 
 @interface PreferencesWindowController : NSWindowController
-@property (strong) TodayStatus* model;
+@property(strong) TodayStatus *model;
 
-@property (weak) IBOutlet NSSlider *pomodoroSlider;
-@property (weak) IBOutlet NSSlider *shortBreakSlider;
-@property (weak) IBOutlet NSSlider *longBreakSlider;
-@property (weak) IBOutlet NSTextField *pomodoroLabel;
-@property (weak) IBOutlet NSTextField *shortBreakLabel;
-@property (weak) IBOutlet NSTextField *longBreakLabel;
+@property(weak) IBOutlet NSSlider *pomodoroSlider;
+@property(weak) IBOutlet NSSlider *shortBreakSlider;
+@property(weak) IBOutlet NSSlider *longBreakSlider;
+@property(weak) IBOutlet NSTextField *pomodoroLabel;
+@property(weak) IBOutlet NSTextField *shortBreakLabel;
+@property(weak) IBOutlet NSTextField *longBreakLabel;
 
 - (IBAction)updatePomodoroLength:(id)sender;
 - (IBAction)updateShortBreakLength:(id)sender;

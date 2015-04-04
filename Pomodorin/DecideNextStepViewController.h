@@ -10,6 +10,6 @@
 @class TodayStatus;
 
 @interface DecideNextStepViewController : NSViewController
-@property (strong) TodayStatus* model;
+@property(strong) TodayStatus *model;
 
 @end

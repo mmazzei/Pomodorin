@@ -10,6 +10,6 @@
 @class TodayStatus;
 
 @interface RecordWindowController : NSWindowController
-@property (strong) TodayStatus* model;
+@property(strong) TodayStatus *model;
 
 @end
