@@ -21,9 +21,9 @@
 - (void)windowDidLoad {
   [super windowDidLoad];
 
-  self.pomodoroLabel.stringValue = [NSString stringWithFormat:@"%ld min", self.model.config.pomodoroLength];
-  self.shortBreakLabel.stringValue = [NSString stringWithFormat:@"%ld min", self.model.config.shortBreakLength];
-  self.longBreakLabel.stringValue = [NSString stringWithFormat:@"%ld min", self.model.config.longBreakLength];
+  self.pomodoroLabel.stringValue = [self minutesToString:self.model.config.pomodoroLength];
+  self.shortBreakLabel.stringValue = [self minutesToString:self.model.config.shortBreakLength];
+  self.longBreakLabel.stringValue = [self minutesToString:self.model.config.longBreakLength];
 
   self.pomodoroSlider.integerValue = self.model.config.pomodoroLength;
   self.shortBreakSlider.integerValue = self.model.config.shortBreakLength;
@@ -36,16 +36,20 @@
 
 - (IBAction)updatePomodoroLength:(id)sender {
   self.model.config.pomodoroLength = [self.pomodoroSlider integerValue];
-  self.pomodoroLabel.stringValue = [NSString stringWithFormat:@"%ld min", self.model.config.pomodoroLength];
+  self.pomodoroLabel.stringValue = [self minutesToString:self.model.config.pomodoroLength];
 }
 
 - (IBAction)updateShortBreakLength:(id)sender {
   self.model.config.shortBreakLength = [self.shortBreakSlider integerValue];
-  self.shortBreakLabel.stringValue = [NSString stringWithFormat:@"%ld min", self.model.config.shortBreakLength];
+  self.shortBreakLabel.stringValue = [self minutesToString:self.model.config.shortBreakLength];
 }
 
 - (IBAction)updateLongBreakLength:(id)sender {
   self.model.config.longBreakLength = [self.longBreakSlider integerValue];
-  self.longBreakLabel.stringValue = [NSString stringWithFormat:@"%ld min", self.model.config.longBreakLength];
+  self.longBreakLabel.stringValue = [self minutesToString:self.model.config.longBreakLength];
+}
+
+- (NSString*) minutesToString:(NSInteger)minutes {
+  return [NSString stringWithFormat:@"%ld min", minutes];
 }
 @end

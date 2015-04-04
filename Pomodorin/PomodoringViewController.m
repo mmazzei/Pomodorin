@@ -122,7 +122,6 @@
 - (IBAction)discardTimebox:(id)sender {
   NSLog(@"'Discard Timebox' button pressed");
   [self.model discardCurrentTimebox];
-  self.model.automaticMode = FALSE;
 
   [self cancelScheduledNotification];
 

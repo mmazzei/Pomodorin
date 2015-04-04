@@ -75,6 +75,7 @@
 
 - (void)discardCurrentTimebox {
   self.currentTask = nil;
+  self.automaticMode = FALSE;
 }
 
 - (void)startAPomodoro {
