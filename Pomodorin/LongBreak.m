@@ -1,27 +1,23 @@
 //
-//  Break.m
+//  LongBreak.m
 //  Pomodorin
 //
-//  Created by Matias Mazzei on 3/24/15.
+//  Created by Matias Mazzei on 4/4/15.
 //  Copyright (c) 2015 mmazzei. All rights reserved.
 //
 
-#import "Break.h"
+#import "LongBreak.h"
 #import "GlobalDeclarations.h"
 #import "Config.h"
 
-@implementation Break
+@implementation LongBreak
 
-- (id)initWithType:(TaskType)type andConfig:(Config *)config {
+- (id)initWithConfig:(Config *)config {
   NSInteger breakMinutes = config.shortBreakLength;
-  if (type == LONG_BREAK) {
-    breakMinutes = config.longBreakLength;
-  }
-
   NSDate *expiresOn = [[NSDate alloc] initWithTimeIntervalSinceNow:(breakMinutes * SECONDS_IN_A_MINUTE)];
-
-  self = [super initWithType:type expiringOn:expiresOn];
-
+  
+  self = [super initWithType:LONG_BREAK expiringOn:expiresOn];
+  
   return self;
 }
 

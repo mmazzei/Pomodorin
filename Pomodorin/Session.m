@@ -9,7 +9,8 @@
 #import "Session.h"
 #import "TimeBox.h"
 #import "Pomodoro.h"
-#import "Break.h"
+#import "ShortBreak.h"
+#import "LongBreak.h"
 
 // Number of timeboxes needed for the recommend heuristic
 static const NSUInteger MAX_TIMEBOXES_TO_REMEMBER = 7;
@@ -107,11 +108,11 @@ static const NSUInteger MAX_TIME_TO_REMEMBER = 60;
   else if ((self.lastFinishedTimeboxes.count == MAX_TIMEBOXES_TO_REMEMBER) &&
            [self pomodoroAndShortBreakIn:self.lastFinishedTimeboxes at:0 repetitions:3]) {
     NSLog(@"Three series of [Pomodoro,ShortBreak] and a Pomodoro => Recommend a long break");
-    recommendation = [[Break alloc] initWithType:LONG_BREAK andConfig:self.config];
+    recommendation = [[LongBreak alloc] initWithConfig:self.config];
   } else {
     // Short-break timebox in other case
     NSLog(@"Last timebox is a pomodoro, without any previous valid pattern => Recommend a short break");
-    recommendation = [[Break alloc] initWithType:SHORT_BREAK andConfig:self.config];
+    recommendation = [[ShortBreak alloc] initWithConfig:self.config];
   }
   return recommendation;
 }

@@ -10,7 +10,8 @@
 #import "GlobalDeclarations.h"
 #import "TimeBox.h"
 #import "Pomodoro.h"
-#import "Break.h"
+#import "ShortBreak.h"
+#import "LongBreak.h"
 #import "Record.h"
 #import "Config.h"
 #import "Session.h"
@@ -83,12 +84,12 @@
 
 - (void)startAShortBreak {
   [self recordCurrentTaskIfFinished];
-  self.currentTask = [[Break alloc] initWithType:SHORT_BREAK andConfig:self.config];
+  self.currentTask = [[ShortBreak alloc] initWithConfig:self.config];
 }
 
 - (void)startALongBreak {
   [self recordCurrentTaskIfFinished];
-  self.currentTask = [[Break alloc] initWithType:LONG_BREAK andConfig:self.config];
+  self.currentTask = [[LongBreak alloc] initWithConfig:self.config];
 }
 
 - (void)recordCurrentTaskIfFinished {

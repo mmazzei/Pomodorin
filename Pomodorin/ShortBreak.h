@@ -1,5 +1,5 @@
 //
-//  Break.h
+//  ShortBreak.h
 //  Pomodorin
 //
 //  Created by Matias Mazzei on 3/24/15.
@@ -10,6 +10,6 @@
 #import "TimeBox.h"
 @class Config;
 
-@interface Break : TimeBox
-- (id)initWithType:(TaskType)type andConfig:(Config *)config;
+@interface ShortBreak : TimeBox
+- (id)initWithConfig:(Config *)config;
 @end
