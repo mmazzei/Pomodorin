@@ -39,4 +39,7 @@
   return ([self.expiresOn compare:[NSDate date]] != NSOrderedDescending);
 }
 
+- (TaskType)type {
+  @throw [NSException exceptionWithName:@"Invalid method call" reason:@"You tried to use directly the abstract TimeBox class" userInfo:@{}];
+}
 @end

@@ -9,13 +9,13 @@
 #import "PomodoringViewController.h"
 #import "GlobalDeclarations.h"
 #import "AppDelegate.h"
+#import "ViewAdditions.h"
 
 #import "TodayStatus.h"
 #import "TimeBox.h"
 #import "Record.h"
 #import "Summary.h"
 #import "Pomodoro.h"
-#import "Config.h"
 
 @interface PomodoringViewController ()
 @property(strong) NSTimer *refreshStatusTimer;
@@ -38,7 +38,7 @@
   // This is needed in order to draw a pixelated image
   [[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationNone];
 
-  [self.currentTaskImage setImage:[NSImage imageNamed:[self.model.config imageNameFor:self.model.currentTask.type]]];
+  [self.currentTaskImage setImage:[NSImage imageNamed:[self.model.currentTask.class imageName]]];
 
   if (self.model.currentTask.type != POMODORO) {
     [self.interruptionsBox removeFromSuperview];

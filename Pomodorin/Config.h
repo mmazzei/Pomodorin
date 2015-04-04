@@ -13,6 +13,4 @@
 @property(assign) NSInteger pomodoroLength;
 @property(assign) NSInteger shortBreakLength;
 @property(assign) NSInteger longBreakLength;
-
-- (NSString *)imageNameFor:(int)taskType;
 @end

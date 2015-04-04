@@ -13,19 +13,19 @@
 #import "LongBreak.h"
 
 @implementation Pomodoro (ViewAdditions)
-- (NSString *)imageName {
++ (NSString *)imageName {
   return @"tomato";
 }
 @end
 
 @implementation ShortBreak (ViewAdditions)
-- (NSString *)imageName {
++ (NSString *)imageName {
   return @"hourglass";
 }
 @end
 
 @implementation LongBreak (ViewAdditions)
-- (NSString *)imageName {
++ (NSString *)imageName {
   return @"dark_hourglass";
 }
 @end

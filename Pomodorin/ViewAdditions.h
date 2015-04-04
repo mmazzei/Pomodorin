@@ -12,5 +12,5 @@
 // model, or other classes, from the view
 
 @interface TimeBox (ViewAdditions)
-- (NSString *)imageName;
++ (NSString *)imageName;
 @end
