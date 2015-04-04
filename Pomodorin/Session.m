@@ -12,8 +12,11 @@
 #import "ShortBreak.h"
 #import "LongBreak.h"
 
+// Number of complete pomodoris for each long break
+static const NSUInteger POMODORIS_EACH_LONG_BREAK = 4;
+
 // Number of timeboxes needed for the recommend heuristic
-static const NSUInteger MAX_TIMEBOXES_TO_REMEMBER = 7;
+static const NSUInteger MAX_TIMEBOXES_TO_REMEMBER = POMODORIS_EACH_LONG_BREAK*2 - 1;
 
 // If the last remembered timebox is older than this, too much idle time
 // has gone until now to be considered as a part of the same pomodoro session.
@@ -106,7 +109,7 @@ static const NSUInteger MAX_TIME_TO_REMEMBER = 60;
   // in the previous if we checked for the other two posibilites, so
   // we know that if are here, IS a pomodoro.
   else if ((self.lastFinishedTimeboxes.count == MAX_TIMEBOXES_TO_REMEMBER) &&
-           [self pomodoroAndShortBreakIn:self.lastFinishedTimeboxes at:0 repetitions:3]) {
+           [self arePomodoroAndShortBreakIn:self.lastFinishedTimeboxes at:0 repetitions:POMODORIS_EACH_LONG_BREAK-1]) {
     NSLog(@"Three series of [Pomodoro,ShortBreak] and a Pomodoro => Recommend a long break");
     recommendation = [[LongBreak alloc] initWithConfig:self.config];
   } else {
@@ -120,14 +123,14 @@ static const NSUInteger MAX_TIME_TO_REMEMBER = 60;
 // Returns true only if there are the number of repetitions of
 // [Pomodoro,ShortBreak] in the array, counting from the given
 // index.
-- (BOOL)pomodoroAndShortBreakIn:(NSArray *)array
+- (BOOL)arePomodoroAndShortBreakIn:(NSArray *)array
                              at:(NSUInteger)index
                     repetitions:(NSUInteger)count {
   if (count == 0) return TRUE;
   TimeBox *firstElem = array[index];
   TimeBox *secondElem = array[index + 1];
 
-  return (firstElem.type == POMODORO) && (secondElem.type == SHORT_BREAK) && [self pomodoroAndShortBreakIn:array
+  return (firstElem.type == POMODORO) && (secondElem.type == SHORT_BREAK) && [self arePomodoroAndShortBreakIn:array
                                     at:index + 2
                            repetitions:count - 1];
 }
