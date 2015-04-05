@@ -112,7 +112,7 @@
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2FJ-dC-Iyl">
                                 <rect key="frame" x="43" y="128" width="197" height="193"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="tomato" id="Ez7-Qf-q4F"/>
+                                <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="tomato" id="Ez7-Qf-q4F" customClass="PixellatedImageCell"/>
                             </imageView>
                         </subviews>
                     </view>
@@ -129,6 +129,6 @@
         <image name="NSLockLockedTemplate" width="10" height="14"/>
         <image name="NSLockUnlockedTemplate" width="10" height="14"/>
         <image name="NSRemoveTemplate" width="11" height="11"/>
-        <image name="tomato" width="691" height="676"/>
+        <image name="tomato" width="16" height="16"/>
     </resources>
 </document>

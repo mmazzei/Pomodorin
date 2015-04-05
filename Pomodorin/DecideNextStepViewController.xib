@@ -39,7 +39,7 @@
                             <button identifier="startPomodoro" toolTip="Start a Pomodoro" verticalHuggingPriority="750" id="aqb-l9-vmq">
                                 <rect key="frame" x="43" y="128" width="197" height="193"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="smallSquare" alternateTitle="Start Pomodoro" bezelStyle="smallSquare" image="tomato" imagePosition="only" alignment="center" controlSize="mini" state="on" imageScaling="proportionallyUpOrDown" sound="Pop" inset="2" id="kBB-pR-Zuc">
+                                <buttonCell key="cell" type="smallSquare" alternateTitle="Start Pomodoro" bezelStyle="smallSquare" image="tomato" imagePosition="only" alignment="center" controlSize="mini" state="on" imageScaling="proportionallyUpOrDown" sound="Pop" inset="2" id="kBB-pR-Zuc" customClass="PixellatedButtonCell">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="miniSystem"/>
                                 </buttonCell>
@@ -50,7 +50,7 @@
                             <button identifier="startOption1" toolTip="Start a Short Break" verticalHuggingPriority="750" id="JlS-J5-sO3">
                                 <rect key="frame" x="42" y="37" width="88" height="87"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="smallSquare" alternateTitle="Start a Short Break" bezelStyle="smallSquare" image="hourglass" imagePosition="only" alignment="center" controlSize="mini" state="on" imageScaling="proportionallyUpOrDown" sound="Pop" inset="2" id="Ynv-Ki-jBL">
+                                <buttonCell key="cell" type="smallSquare" alternateTitle="Start a Short Break" bezelStyle="smallSquare" image="hourglass" imagePosition="only" alignment="center" controlSize="mini" state="on" imageScaling="proportionallyUpOrDown" sound="Pop" inset="2" id="Ynv-Ki-jBL" customClass="PixellatedButtonCell">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system" size="88"/>
                                 </buttonCell>
@@ -61,7 +61,7 @@
                             <button identifier="startOption2" toolTip="Start a Long Break" verticalHuggingPriority="750" id="NMX-DT-ytC">
                                 <rect key="frame" x="151" y="37" width="88" height="87"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="smallSquare" alternateTitle="Start a Long Break" bezelStyle="smallSquare" image="dark_hourglass" imagePosition="overlaps" alignment="center" controlSize="mini" state="on" imageScaling="proportionallyUpOrDown" sound="Pop" inset="2" id="Tzj-Ml-exe">
+                                <buttonCell key="cell" type="smallSquare" alternateTitle="Start a Long Break" bezelStyle="smallSquare" image="dark_hourglass" imagePosition="overlaps" alignment="center" controlSize="mini" state="on" imageScaling="proportionallyUpOrDown" sound="Pop" inset="2" id="Tzj-Ml-exe" customClass="PixellatedButtonCell">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system" size="88"/>
                                 </buttonCell>

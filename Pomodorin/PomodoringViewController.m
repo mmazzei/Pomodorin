@@ -35,8 +35,6 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  // This is needed in order to draw a pixelated image
-  [[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationNone];
 
   [self.currentTaskImage setImage:[NSImage imageNamed:[self.model.currentTask.class imageName]]];
 

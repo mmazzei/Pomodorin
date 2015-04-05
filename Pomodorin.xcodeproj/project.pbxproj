@@ -10,6 +10,7 @@
 		9A36D0961AC58F6100B74EFF /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A36D0941AC58F6100B74EFF /* PreferencesWindowController.m */; };
 		9A36D0971AC58F6100B74EFF /* PreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A36D0951AC58F6100B74EFF /* PreferencesWindowController.xib */; };
 		9A36D09A1AC597E500B74EFF /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A36D0991AC597E500B74EFF /* Config.m */; };
+		9A3F29D31AD178540058C8F7 /* PixellatedImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A3F29D21AD178540058C8F7 /* PixellatedImageCell.m */; };
 		9A485CAE1ACC2469000DA37D /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A485CAD1ACC2469000DA37D /* Session.m */; };
 		9A597C3B1AC32F41002648A6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A597C3A1AC32F41002648A6 /* AppDelegate.m */; };
 		9A597C3D1AC32F41002648A6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A597C3C1AC32F41002648A6 /* main.m */; };
@@ -30,6 +31,7 @@
 		9A597C7D1AC3301D002648A6 /* PomodoringViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A597C791AC3301D002648A6 /* PomodoringViewController.xib */; };
 		9A597C881AC4A160002648A6 /* RecordWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A597C861AC4A160002648A6 /* RecordWindowController.m */; };
 		9A597C891AC4A160002648A6 /* RecordWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A597C871AC4A160002648A6 /* RecordWindowController.xib */; };
+		9A60256C1AD16F5100B8232C /* PixellatedButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A60256B1AD16F5100B8232C /* PixellatedButtonCell.m */; };
 		9A98845F1AD01FD000DE2A43 /* ViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A98845E1AD01FD000DE2A43 /* ViewAdditions.m */; };
 		9A9884621AD024EA00DE2A43 /* LongBreak.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9884611AD024EA00DE2A43 /* LongBreak.m */; };
 		9ABBB91B1ACF29D3001E64C2 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9ABBB91A1ACF29D3001E64C2 /* LICENSE.txt */; };
@@ -55,6 +57,8 @@
 		9A36D0951AC58F6100B74EFF /* PreferencesWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesWindowController.xib; sourceTree = "<group>"; };
 		9A36D0981AC597E500B74EFF /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		9A36D0991AC597E500B74EFF /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
+		9A3F29D11AD178540058C8F7 /* PixellatedImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixellatedImageCell.h; sourceTree = "<group>"; };
+		9A3F29D21AD178540058C8F7 /* PixellatedImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PixellatedImageCell.m; sourceTree = "<group>"; };
 		9A485CAC1ACC2469000DA37D /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
 		9A485CAD1ACC2469000DA37D /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
 		9A597C341AC32F41002648A6 /* Pomodorin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomodorin.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +95,8 @@
 		9A597C851AC4A160002648A6 /* RecordWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordWindowController.h; sourceTree = "<group>"; };
 		9A597C861AC4A160002648A6 /* RecordWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordWindowController.m; sourceTree = "<group>"; };
 		9A597C871AC4A160002648A6 /* RecordWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordWindowController.xib; sourceTree = "<group>"; };
+		9A60256A1AD16F5100B8232C /* PixellatedButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixellatedButtonCell.h; sourceTree = "<group>"; };
+		9A60256B1AD16F5100B8232C /* PixellatedButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PixellatedButtonCell.m; sourceTree = "<group>"; };
 		9A98845D1AD01FD000DE2A43 /* ViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewAdditions.h; sourceTree = "<group>"; };
 		9A98845E1AD01FD000DE2A43 /* ViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewAdditions.m; sourceTree = "<group>"; };
 		9A9884601AD024EA00DE2A43 /* LongBreak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LongBreak.h; sourceTree = "<group>"; };
@@ -213,6 +219,7 @@
 		9A597C591AC32F80002648A6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9A6025691AD16F1300B8232C /* CustomControls */,
 				9A597C741AC3301D002648A6 /* MainViewController.h */,
 				9A597C751AC3301D002648A6 /* MainViewController.m */,
 				9A597C761AC3301D002648A6 /* MainViewController.xib */,
@@ -232,6 +239,17 @@
 				9A98845E1AD01FD000DE2A43 /* ViewAdditions.m */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		9A6025691AD16F1300B8232C /* CustomControls */ = {
+			isa = PBXGroup;
+			children = (
+				9A60256A1AD16F5100B8232C /* PixellatedButtonCell.h */,
+				9A60256B1AD16F5100B8232C /* PixellatedButtonCell.m */,
+				9A3F29D11AD178540058C8F7 /* PixellatedImageCell.h */,
+				9A3F29D21AD178540058C8F7 /* PixellatedImageCell.m */,
+			);
+			name = CustomControls;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,9 +365,11 @@
 				9A597C6E1AC32FEC002648A6 /* TodayStatus.m in Sources */,
 				9A597C6A1AC32FEC002648A6 /* Pomodoro.m in Sources */,
 				9A597C881AC4A160002648A6 /* RecordWindowController.m in Sources */,
+				9A3F29D31AD178540058C8F7 /* PixellatedImageCell.m in Sources */,
 				9A597C5E1AC32FC5002648A6 /* ShortBreak.m in Sources */,
 				9AFE5D191ACF0EF400E203CA /* README.md in Sources */,
 				9A597C7C1AC3301D002648A6 /* PomodoringViewController.m in Sources */,
+				9A60256C1AD16F5100B8232C /* PixellatedButtonCell.m in Sources */,
 				9ABBB91D1ACF4C5A001E64C2 /* README_es.md in Sources */,
 				9A36D09A1AC597E500B74EFF /* Config.m in Sources */,
 				9A597C6D1AC32FEC002648A6 /* TimeBox.m in Sources */,
