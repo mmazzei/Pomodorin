@@ -13,6 +13,7 @@
 #import "DecideNextStepViewController.h"
 #import "RecordWindowController.h"
 #import "PreferencesWindowController.h"
+#import "RightClickAwareStatusItemView.h"
 #import "TodayStatus.h"
 #import "TimeBox.h"
 #import "Config.h"
@@ -20,13 +21,25 @@
 @interface AppDelegate ()
 
 @property(weak) IBOutlet NSWindow *window;
+@property (weak) IBOutlet NSMenu *menu;
+@property (strong, nonatomic) NSStatusItem *statusItem;
 @property(strong, nonatomic) IBOutlet NSViewController *currentView;
 @property(strong) TodayStatus *model;
+@property (strong) RightClickAwareStatusItemView* statusItemView;
 @end
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+  // Configure the status item with the custom control
+  self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength];
+  self.statusItemView = [[RightClickAwareStatusItemView alloc] init];
+  self.statusItemView.image = [NSImage imageNamed:@"tomato"];
+  self.statusItemView.target = self;
+  self.statusItemView.action = @selector(statusItemAction:);
+  self.statusItemView.rightAction = @selector(showStatusItemMenu);
+  [self.statusItem setView:self.statusItemView];
+  
   // Register myself as a notification delegate in order to configure the flags
   [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
 
@@ -39,6 +52,33 @@
     [self switchToPomodoringView];
   } else {
     [self switchToMainView];
+  }
+}
+
+// Shows the menu
+- (void)showStatusItemMenu{
+  [self.statusItem popUpStatusItemMenu:self.menu];
+}
+
+// Shows/Hides the main window
+- (void)statusItemAction:(id)sender {
+  NSWindow *aWindow = [self window];
+  NSApplication *myApp = [NSApplication sharedApplication];
+  if (![aWindow isKeyWindow]) {
+    [aWindow makeKeyAndOrderFront:self];
+    [myApp activateIgnoringOtherApps:YES];
+    [aWindow orderFrontRegardless];
+  }
+  else{
+    if ([myApp isActive]){
+      // Hide the window
+      [aWindow orderOut:sender];
+    }
+    else{
+      // Display the window
+      [myApp activateIgnoringOtherApps:YES];
+      [aWindow orderFrontRegardless];
+    }
   }
 }
 
@@ -78,7 +118,7 @@
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:
         (NSApplication *)theApplication {
-  return YES;
+  return NO;
 }
 
 // Sent to the delegate when a notification delivery date has arrived.
@@ -88,7 +128,6 @@
     [self switchToPomodoringView];
     [self.window deminiaturize:self];
   }
-  [center removeAllDeliveredNotifications];
 }
 
 // "Preferences" menu item activated.

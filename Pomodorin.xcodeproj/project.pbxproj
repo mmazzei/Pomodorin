@@ -11,6 +11,7 @@
 		9A36D0971AC58F6100B74EFF /* PreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A36D0951AC58F6100B74EFF /* PreferencesWindowController.xib */; };
 		9A36D09A1AC597E500B74EFF /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A36D0991AC597E500B74EFF /* Config.m */; };
 		9A3F29D31AD178540058C8F7 /* PixellatedImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A3F29D21AD178540058C8F7 /* PixellatedImageCell.m */; };
+		9A42AAC01AD1B04200554806 /* RightClickAwareStatusItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A42AABF1AD1B04200554806 /* RightClickAwareStatusItemView.m */; };
 		9A485CAE1ACC2469000DA37D /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A485CAD1ACC2469000DA37D /* Session.m */; };
 		9A597C3B1AC32F41002648A6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A597C3A1AC32F41002648A6 /* AppDelegate.m */; };
 		9A597C3D1AC32F41002648A6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A597C3C1AC32F41002648A6 /* main.m */; };
@@ -59,6 +60,8 @@
 		9A36D0991AC597E500B74EFF /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 		9A3F29D11AD178540058C8F7 /* PixellatedImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixellatedImageCell.h; sourceTree = "<group>"; };
 		9A3F29D21AD178540058C8F7 /* PixellatedImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PixellatedImageCell.m; sourceTree = "<group>"; };
+		9A42AABE1AD1B04200554806 /* RightClickAwareStatusItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightClickAwareStatusItemView.h; sourceTree = "<group>"; };
+		9A42AABF1AD1B04200554806 /* RightClickAwareStatusItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightClickAwareStatusItemView.m; sourceTree = "<group>"; };
 		9A485CAC1ACC2469000DA37D /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
 		9A485CAD1ACC2469000DA37D /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
 		9A597C341AC32F41002648A6 /* Pomodorin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomodorin.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -248,6 +251,8 @@
 				9A60256B1AD16F5100B8232C /* PixellatedButtonCell.m */,
 				9A3F29D11AD178540058C8F7 /* PixellatedImageCell.h */,
 				9A3F29D21AD178540058C8F7 /* PixellatedImageCell.m */,
+				9A42AABE1AD1B04200554806 /* RightClickAwareStatusItemView.h */,
+				9A42AABF1AD1B04200554806 /* RightClickAwareStatusItemView.m */,
 			);
 			name = CustomControls;
 			sourceTree = "<group>";
@@ -367,6 +372,7 @@
 				9A597C881AC4A160002648A6 /* RecordWindowController.m in Sources */,
 				9A3F29D31AD178540058C8F7 /* PixellatedImageCell.m in Sources */,
 				9A597C5E1AC32FC5002648A6 /* ShortBreak.m in Sources */,
+				9A42AAC01AD1B04200554806 /* RightClickAwareStatusItemView.m in Sources */,
 				9AFE5D191ACF0EF400E203CA /* README.md in Sources */,
 				9A597C7C1AC3301D002648A6 /* PomodoringViewController.m in Sources */,
 				9A60256C1AD16F5100B8232C /* PixellatedButtonCell.m in Sources */,
