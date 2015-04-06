@@ -74,9 +74,13 @@
   NSLog(@"Timer tick");
 
   if ((!self.model.currentTask) || [self.model.currentTask isExpired]) {
-    // And jump to a view to decide what to do next
-    id delegate = [NSApp delegate];
-    [delegate switchToDecideNextStepView];
+    // This is another of my horrible *temporary(* hacks
+    // This line is just to make the "model.currentTask"
+    // property updated (the record method updates it, mua jaja)
+    // In order to allow the observer (MainWindowController)
+    // act accordingly:
+    [self.model record];
+    //
   } else {
     // Get the time for the current task expiration
     NSDate *now = [NSDate date];
@@ -119,12 +123,8 @@
 
 - (IBAction)discardTimebox:(id)sender {
   NSLog(@"'Discard Timebox' button pressed");
-  [self.model discardCurrentTimebox];
-
   [self cancelScheduledNotification];
-
-  id delegate = [NSApp delegate];
-  [delegate switchToDecideNextStepView];
+  [self.model discardCurrentTimebox];
 }
 
 - (IBAction)addInternalInterruption:(id)sender {

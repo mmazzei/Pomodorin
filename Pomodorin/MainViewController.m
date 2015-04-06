@@ -26,10 +26,6 @@
 - (IBAction)startPomodoring:(id)sender {
   NSLog(@"'Start Pomodoring' button pressed");
   [self.model startAPomodoro];
-
-  // I'm pretty sure the app delegate is the one I implemented :)
-  id delegate = [NSApp delegate];
-  [delegate switchToPomodoringView];
 }
 
 - (IBAction)seeSummary:(id)sender {

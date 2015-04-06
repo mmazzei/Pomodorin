@@ -37,9 +37,6 @@
     case SHORT_BREAK: [self.model startAShortBreak]; break;
     case LONG_BREAK: [self.model startALongBreak]; break;
     }
-
-    id delegate = [NSApp delegate];
-    [delegate switchToPomodoringView];
   } else {
     [self.view setHidden:FALSE];
   }
@@ -126,20 +123,14 @@
 
 - (IBAction)startPomodoro:(id)sender {
   [self.model startAPomodoro];
-  id delegate = [NSApp delegate];
-  [delegate switchToPomodoringView];
 }
 
 - (IBAction)startShortBreak:(id)sender {
   [self.model startAShortBreak];
-  id delegate = [NSApp delegate];
-  [delegate switchToPomodoringView];
 }
 
 - (IBAction)startLongBreak:(id)sender {
   [self.model startALongBreak];
-  id delegate = [NSApp delegate];
-  [delegate switchToPomodoringView];
 }
 
 - (IBAction)seeSummary:(id)sender {

@@ -8,9 +8,7 @@
 
 #import "AppDelegate.h"
 #import "GlobalDeclarations.h"
-#import "MainViewController.h"
-#import "PomodoringViewController.h"
-#import "DecideNextStepViewController.h"
+#import "MainWindowController.h"
 #import "RecordWindowController.h"
 #import "PreferencesWindowController.h"
 #import "RightClickAwareStatusItemView.h"
@@ -19,11 +17,11 @@
 #import "Config.h"
 
 @interface AppDelegate ()
-
-@property(weak) IBOutlet NSWindow *window;
 @property (weak) IBOutlet NSMenu *menu;
 @property (strong, nonatomic) NSStatusItem *statusItem;
-@property(strong, nonatomic) IBOutlet NSViewController *currentView;
+
+@property(strong, nonatomic) MainWindowController *mainWindowController;
+
 @property(strong) TodayStatus *model;
 @property (strong) RightClickAwareStatusItemView* statusItemView;
 @end
@@ -46,13 +44,7 @@
   self.model = [self loadModel];
   self.model.config = [self loadConfig];
 
-  // When starting the app, if there are a valid current task, show
-  // the pomodoring view, it will seems as if the app was never closed
-  if (self.model.currentTask && ![self.model.currentTask isExpired]) {
-    [self switchToPomodoringView];
-  } else {
-    [self switchToMainView];
-  }
+  [self statusItemAction:nil];
 }
 
 // Shows the menu
@@ -62,19 +54,26 @@
 
 // Shows/Hides the main window
 - (void)statusItemAction:(id)sender {
-  NSWindow *aWindow = [self window];
+  [self showMainWindow];
+
+  NSWindow *aWindow = [self.mainWindowController window];
   NSApplication *myApp = [NSApplication sharedApplication];
+
+  // if the window is minimized, restore it and make it active
   if (![aWindow isKeyWindow]) {
-    [aWindow makeKeyAndOrderFront:self];
+    NSLog(@"\tWindow minimized => restore and activate");
     [myApp activateIgnoringOtherApps:YES];
     [aWindow orderFrontRegardless];
+    [aWindow makeKeyAndOrderFront:self];
   }
   else{
     if ([myApp isActive]){
+      NSLog(@"\tWindow active => hide");
       // Hide the window
       [aWindow orderOut:sender];
     }
     else{
+      NSLog(@"\tWindow hidden => activate");
       // Display the window
       [myApp activateIgnoringOtherApps:YES];
       [aWindow orderFrontRegardless];
@@ -91,11 +90,7 @@
 // To allow click on the Dock icon, re-open the last window
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication
                     hasVisibleWindows:(BOOL)flag {
-  if (!flag) {
-    [self.window makeKeyAndOrderFront:self];
-  }
-
-  return flag;
+  return TRUE;
 }
 
 // Flag to activate the notification popup
@@ -104,16 +99,11 @@
   return YES;
 }
 
-// When coming from the notification, maximize the window
+// When coming from the notification, do the same as if user
+// clicks the status item
 - (void)userNotificationCenter:(NSUserNotificationCenter *)center
        didActivateNotification:(NSUserNotification *)notification {
-  // This is to avoid the segmentation fault for the case
-  // of minimized app -> notification -> user clicks notificaction
-  //  -> nothing happens -> user maximizes the app -> segmentation fault
-  if ([self.model.currentTask isExpired]) {
-    [self switchToDecideNextStepView];
-  }
-  [[self window] deminiaturize:self];
+  [self statusItemAction:nil];
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:
@@ -124,10 +114,7 @@
 // Sent to the delegate when a notification delivery date has arrived.
 - (void)userNotificationCenter:(NSUserNotificationCenter *)center
         didDeliverNotification:(NSUserNotification *)notification {
-  if ([self.window isMiniaturized]) {
-    [self switchToPomodoringView];
-    [self.window deminiaturize:self];
-  }
+  // Do nothing
 }
 
 // "Preferences" menu item activated.
@@ -135,19 +122,11 @@
   [self showPreferencesWindow];
 }
 
-- (void)switchToMainView {
-  [self initAndSetAsCurrentView:[MainViewController alloc]
-                    withNibName:@"MainViewController"];
-}
-
-- (void)switchToPomodoringView {
-  [self initAndSetAsCurrentView:[PomodoringViewController alloc]
-                    withNibName:@"PomodoringViewController"];
-}
-
-- (void)switchToDecideNextStepView {
-  [self initAndSetAsCurrentView:[DecideNextStepViewController alloc]
-                    withNibName:@"DecideNextStepViewController"];
+- (void)showMainWindow {
+  if(self.mainWindowController == nil) {
+    self.mainWindowController = [[MainWindowController alloc] initWithWindowNibName:@"MainWindowController"];
+    self.mainWindowController.model = self.model;
+  }
 }
 
 - (void)showRecordWindow {
@@ -158,28 +137,6 @@
 - (void)showPreferencesWindow {
   [self initAndShowWindow:[PreferencesWindowController alloc]
               withNibName:@"PreferencesWindowController"];
-}
-
-// HELPERS
-- (void)initAndSetAsCurrentView:(NSViewController *)aView
-                    withNibName:(NSString *)nibName {
-  // First remove the current view
-  if (self.currentView) {
-    [self.currentView.view removeFromSuperview];
-  }
-
-  // Then initialize and add the other view
-  self.currentView = [aView initWithNibName:nibName bundle:nil];
-
-  // For the controllers supporting my model object, set it up
-  if ([self.currentView respondsToSelector:@selector(setModel:)]) {
-    id theView = self.currentView;
-    [theView setModel:self.model];
-  }
-
-  // And now add the view, setting the adequated size
-  [self.window.contentView addSubview:self.currentView.view];
-  self.currentView.view.frame = ((NSView *)self.window.contentView).bounds;
 }
 
 - (void)initAndShowWindow:(NSWindowController *)theWindow
