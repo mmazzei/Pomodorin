@@ -17,6 +17,9 @@
 @interface MainWindowController ()
 @property(strong, nonatomic) IBOutlet NSViewController *currentView;
 
+@property(strong) MainViewController* mainViewController;
+@property(strong) PomodoringViewController* pomodoringViewController;
+@property(strong) DecideNextStepViewController* decideNextStepViewController;
 @end
 
 @implementation MainWindowController
@@ -50,18 +53,20 @@
 }
 
 - (void)switchToMainView {
-  [self initAndSetAsCurrentView:[MainViewController alloc]
+  self.mainViewController = [MainViewController alloc];
+  [self initAndSetAsCurrentView:self.mainViewController
                     withNibName:@"MainViewController"];
 }
 
 - (void)switchToPomodoringView {
-  [self initAndSetAsCurrentView:[PomodoringViewController alloc]
+  self.pomodoringViewController = [PomodoringViewController alloc];
+  [self initAndSetAsCurrentView:self.pomodoringViewController
                     withNibName:@"PomodoringViewController"];
 }
 
 - (void)switchToDecideNextStepView {
-  [self initAndSetAsCurrentView:[DecideNextStepViewController alloc]
-                    withNibName:@"DecideNextStepViewController"];
+  self.decideNextStepViewController = [DecideNextStepViewController alloc];
+  [self initAndSetAsCurrentView:self.decideNextStepViewController                    withNibName:@"DecideNextStepViewController"];
 }
 
 // HELPERS
@@ -73,18 +78,16 @@
     [self.currentView.view removeFromSuperview];
   }
   
-  // Then initialize and add the other view
+  // prepare the new one
   self.currentView = [aView initWithNibName:nibName bundle:nil];
-  
-  // For the controllers supporting my model object, set it up
   if ([self.currentView respondsToSelector:@selector(setModel:)]) {
     id theView = self.currentView;
     [theView setModel:self.model];
   }
-  
-  // And now add the view, setting the adequated size
-  self.currentView.view.frame = ((NSView *)self.window.contentView).bounds;
-  [self.window.contentView addSubview:self.currentView.view];
+
+  // add the new one
+  [self.mainView addSubview:[self.currentView view]];
+  [[self.currentView view] setFrame:[self.mainView bounds]];
 }
 
 @end

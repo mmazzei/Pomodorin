@@ -10,5 +10,6 @@
 @class TodayStatus;
 
 @interface MainWindowController : NSWindowController
+@property (weak) IBOutlet NSView *mainView;
 @property(strong) TodayStatus *model;
 @end
