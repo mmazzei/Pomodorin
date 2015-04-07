@@ -23,4 +23,11 @@
 #define SECONDS_IN_A_MINUTE 60
 #endif
 
+// To allow run the debug app and the published one at the same time
+#ifdef DEBUG
+#define IS_THE_STATUS_ITEM_HIGHLIGHTED TRUE
+#else
+#define IS_THE_STATUS_ITEM_HIGHLIGHTED FALSE
+#endif
+
 #endif

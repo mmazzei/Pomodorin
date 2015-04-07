@@ -7,6 +7,7 @@
 //
 
 #import "RightClickAwareStatusItemView.h"
+#include "GlobalDeclarations.h"
 
 @implementation RightClickAwareStatusItemView
 @synthesize image = _image;
@@ -20,6 +21,10 @@
                                 (CGFloat)round(aRect.size.height*0.5f-aImage.size.height*0.5f),
                                 aImage.size.width,
                                 aImage.size.height);
+  if (IS_THE_STATUS_ITEM_HIGHLIGHTED) {
+    [[NSColor greenColor] set];
+    NSRectFill(aRect);
+  }
   [aImage drawInRect:imageRect fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0f];
 }
 
