@@ -14,18 +14,10 @@
 #import "Summary.h"
 
 @interface RecordWindowController ()
-@property(unsafe_unretained) IBOutlet NSTextView *recordText;
 
 @end
 
 @implementation RecordWindowController
-
-- (void)windowDidLoad {
-  [super windowDidLoad];
-  if (self.model) {
-    [self.recordText setString:[self.model.record print]];
-  }
-}
 
 - (void)windowWillClose:(NSNotification *)notification {
   [NSApp stopModal];
