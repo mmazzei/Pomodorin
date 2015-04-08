@@ -8,6 +8,7 @@
 
 #import "Session.h"
 #import "TimeBox.h"
+#import "Timer.h"
 #import "Pomodoro.h"
 #import "ShortBreak.h"
 #import "LongBreak.h"
@@ -68,7 +69,7 @@ static const NSUInteger MAX_TIME_TO_REMEMBER = 60;
 
   if ([self.lastFinishedTimeboxes count] > 0) {
     TimeBox *lastTimebox = [self.lastFinishedTimeboxes lastObject];
-    NSDate *now = [NSDate date];
+    NSDate *now = [Timer.sharedInstance now];
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *difference = [calendar components:NSCalendarUnitMinute
                                                fromDate:lastTimebox.expiresOn

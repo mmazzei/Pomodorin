@@ -7,6 +7,7 @@
 //
 
 #import "TimeBox.h"
+#import "Timer.h"
 #import "GlobalDeclarations.h"
 
 @implementation TimeBox
@@ -36,7 +37,7 @@
 }
 
 - (BOOL)isExpired {
-  return ([self.expiresOn compare:[NSDate date]] != NSOrderedDescending);
+  return ([self.expiresOn compare:[Timer.sharedInstance now]] != NSOrderedDescending);
 }
 
 - (TaskType)type {

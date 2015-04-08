@@ -8,13 +8,14 @@
 
 #import "ShortBreak.h"
 #import "GlobalDeclarations.h"
+#import "Timer.h"
 #import "Config.h"
 
 @implementation ShortBreak
 
 - (id)initWithConfig:(Config *)config {
   NSInteger breakMinutes = config.shortBreakLength;
-  NSDate *expiresOn = [[NSDate alloc] initWithTimeIntervalSinceNow:(breakMinutes * SECONDS_IN_A_MINUTE)];
+  NSDate *expiresOn = [[Timer.sharedInstance now] dateByAddingTimeInterval:(breakMinutes * SECONDS_IN_A_MINUTE)];
 
   self = [super initExpiringOn:expiresOn];
 

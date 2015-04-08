@@ -8,6 +8,7 @@
 
 #import "Pomodoro.h"
 #import "GlobalDeclarations.h"
+#import "Timer.h"
 #import "Config.h"
 
 @implementation Pomodoro
@@ -31,7 +32,7 @@
 
 - (id)initWithConfig:(Config *)config {
   // Expires on X minutes from now
-  NSDate *expiresOn = [[NSDate alloc] initWithTimeIntervalSinceNow:config.pomodoroLength * SECONDS_IN_A_MINUTE];
+  NSDate *expiresOn = [[Timer.sharedInstance now] dateByAddingTimeInterval:(config.pomodoroLength * SECONDS_IN_A_MINUTE)];
 
   self = [super initExpiringOn:expiresOn];
 

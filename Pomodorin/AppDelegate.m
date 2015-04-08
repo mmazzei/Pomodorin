@@ -14,6 +14,7 @@
 #import "RightClickAwareStatusItemView.h"
 #import "TodayStatus.h"
 #import "TimeBox.h"
+#import "SystemTimer.h"
 #import "Config.h"
 
 @interface AppDelegate ()
@@ -29,6 +30,9 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+  // Initialize the timer
+  [Timer.sharedInstance setDelegate:[[SystemTimer alloc] init]];
+  
   // Configure the status item with the custom control
   self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength];
   self.statusItemView = [[RightClickAwareStatusItemView alloc] init];

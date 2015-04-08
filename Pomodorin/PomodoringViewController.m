@@ -10,6 +10,7 @@
 #import "GlobalDeclarations.h"
 #import "AppDelegate.h"
 #import "ViewAdditions.h"
+#import "Timer.h"
 
 #import "TodayStatus.h"
 #import "TimeBox.h"
@@ -83,7 +84,7 @@
     //
   } else {
     // Get the time for the current task expiration
-    NSDate *now = [NSDate date];
+    NSDate *now = [Timer.sharedInstance now];
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *difference =
         [calendar components:(NSCalendarUnitMinute | NSCalendarUnitSecond)

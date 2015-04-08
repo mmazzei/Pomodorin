@@ -9,6 +9,7 @@
 #import "TodayStatus.h"
 #import "GlobalDeclarations.h"
 #import "TimeBox.h"
+#import "Timer.h"
 #import "Pomodoro.h"
 #import "ShortBreak.h"
 #import "LongBreak.h"
@@ -105,7 +106,7 @@
 
     // Only record finished pomodoros
     if (self.currentTask.type == POMODORO) {
-      [self.theRecord add:(Pomodoro *)self.currentTask at:[NSDate date]];
+      [self.theRecord add:(Pomodoro *)self.currentTask at:[Timer.sharedInstance now]];
     }
     self.currentTask = nil;
   }

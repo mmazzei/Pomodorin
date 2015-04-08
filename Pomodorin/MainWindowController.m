@@ -28,7 +28,7 @@
   [super windowDidLoad];
   
   NSLog(@"Add as observer");
-  [self.model addObserver:self forKeyPath:@"currentTask" options:NSKeyValueObservingOptionNew context:nil];
+  [self.model addObserver:self forKeyPath:@"currentTask" options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld) context:nil];
   
   // TODO - Execute the following on window close:
   //   [self.model removeObserver:self forKeyPath:@"currentTask" context:nil];
