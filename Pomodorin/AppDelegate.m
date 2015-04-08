@@ -122,6 +122,22 @@
   [self showPreferencesWindow];
 }
 
+// "Clear history" menu item activated
+- (IBAction)clearHistory:(id)sender {
+  NSLog(@"'Clear history' button pressed");
+  NSAlert* alert = [[NSAlert alloc] init];
+  alert.alertStyle = NSWarningAlertStyle;
+  alert.messageText = @"Are you sure want to remove your Pomodorin history?";
+  alert.informativeText = @"All of your history will be lost after this action.";
+  [alert addButtonWithTitle:@"Ok"];
+  [alert addButtonWithTitle:@"Cancel"];
+  NSModalResponse alertResponse = [alert runModal];
+
+  if (alertResponse == NSAlertFirstButtonReturn) {
+    [self.model clearHistory];
+  }
+}
+
 - (void)showMainWindow {
   if(self.mainWindowController == nil) {
     self.mainWindowController = [[MainWindowController alloc] initWithWindowNibName:@"MainWindowController"];

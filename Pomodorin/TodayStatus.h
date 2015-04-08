@@ -27,4 +27,6 @@
 - (void)startAPomodoro;
 - (void)startAShortBreak;
 - (void)startALongBreak;
+
+- (void)clearHistory;
 @end

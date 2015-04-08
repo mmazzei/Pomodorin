@@ -17,8 +17,8 @@
 #import "Session.h"
 
 @interface TodayStatus ()
-@property(strong, readonly) Record *theRecord;
-@property(strong, readonly) Session *session;
+@property(strong) Record *theRecord;
+@property(strong) Session *session;
 @end
 
 @implementation TodayStatus
@@ -91,6 +91,12 @@
 - (void)startALongBreak {
   [self recordCurrentTaskIfFinished];
   self.currentTask = [[LongBreak alloc] initWithConfig:self.config];
+}
+
+- (void)clearHistory {
+  self.theRecord = [[Record alloc] init];
+  self.session = [[Session alloc] init];
+  self.session.config = self.config;
 }
 
 - (void)recordCurrentTaskIfFinished {
