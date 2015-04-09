@@ -7,6 +7,7 @@
 //
 
 #import "Session.h"
+#import "GlobalDeclarations.h"
 #import "TimeBox.h"
 #import "Timer.h"
 #import "Pomodoro.h"
@@ -28,8 +29,7 @@ static const NSUInteger MAX_TIMEBOXES_TO_REMEMBER = POMODORIS_EACH_LONG_BREAK*2 
 //  That makes no sense.
 // The correct way to do that is to forgot the actions after certain
 // period of time. This const configures that.
-// IN MINUTES
-static const NSUInteger MAX_TIME_TO_REMEMBER = 60;
+static const NSUInteger MAX_TIME_TO_REMEMBER = 60;// IN MINUTES
 
 @interface Session ()
 @property(strong) NSMutableArray *lastFinishedTimeboxes;

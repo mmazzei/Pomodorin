@@ -37,12 +37,18 @@
 		9A60256C1AD16F5100B8232C /* PixellatedButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A60256B1AD16F5100B8232C /* PixellatedButtonCell.m */; };
 		9A98845F1AD01FD000DE2A43 /* ViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A98845E1AD01FD000DE2A43 /* ViewAdditions.m */; };
 		9A9884621AD024EA00DE2A43 /* LongBreak.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9884611AD024EA00DE2A43 /* LongBreak.m */; };
+		9AA40B6E1AD5610A004C11DF /* BreakTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA40B6D1AD5610A004C11DF /* BreakTests.m */; };
+		9AA40B701AD56299004C11DF /* SummaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA40B6F1AD56299004C11DF /* SummaryTests.m */; };
+		9AA40B721AD565A4004C11DF /* RecordTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA40B711AD565A4004C11DF /* RecordTests.m */; };
+		9AA40B741AD56B24004C11DF /* SessionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA40B731AD56B24004C11DF /* SessionTests.m */; };
 		9ABBB91B1ACF29D3001E64C2 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9ABBB91A1ACF29D3001E64C2 /* LICENSE.txt */; };
 		9ABBB91D1ACF4C5A001E64C2 /* README_es.md in Sources */ = {isa = PBXBuildFile; fileRef = 9ABBB91C1ACF4C5A001E64C2 /* README_es.md */; };
 		9AE08AE81AC5FB5600FC0E5D /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AE08AE71AC5FB5600FC0E5D /* config.json */; };
 		9AE08AEA1AC60D8F00FC0E5D /* model.dat in Resources */ = {isa = PBXBuildFile; fileRef = 9AE08AE91AC60D8F00FC0E5D /* model.dat */; };
 		9AE355081AD550F50097AC0C /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE355071AD550F50097AC0C /* Timer.m */; };
 		9AE3550B1AD552400097AC0C /* SystemTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE3550A1AD552400097AC0C /* SystemTimer.m */; };
+		9AE355111AD55A5F0097AC0C /* TestTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE355101AD55A5F0097AC0C /* TestTimer.m */; };
+		9AE355131AD55D450097AC0C /* PomodoroTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE355121AD55D450097AC0C /* PomodoroTests.m */; };
 		9AFE5D191ACF0EF400E203CA /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 9AFE5D181ACF0EF400E203CA /* README.md */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +117,10 @@
 		9A98845E1AD01FD000DE2A43 /* ViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewAdditions.m; sourceTree = "<group>"; };
 		9A9884601AD024EA00DE2A43 /* LongBreak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LongBreak.h; sourceTree = "<group>"; };
 		9A9884611AD024EA00DE2A43 /* LongBreak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LongBreak.m; sourceTree = "<group>"; };
+		9AA40B6D1AD5610A004C11DF /* BreakTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BreakTests.m; sourceTree = "<group>"; };
+		9AA40B6F1AD56299004C11DF /* SummaryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryTests.m; sourceTree = "<group>"; };
+		9AA40B711AD565A4004C11DF /* RecordTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordTests.m; sourceTree = "<group>"; };
+		9AA40B731AD56B24004C11DF /* SessionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionTests.m; sourceTree = "<group>"; };
 		9ABBB91A1ACF29D3001E64C2 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		9ABBB91C1ACF4C5A001E64C2 /* README_es.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README_es.md; sourceTree = "<group>"; };
 		9AE08AE61AC5F48D00FC0E5D /* GlobalDeclarations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalDeclarations.h; sourceTree = "<group>"; };
@@ -120,6 +130,9 @@
 		9AE355071AD550F50097AC0C /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timer.m; sourceTree = "<group>"; };
 		9AE355091AD552400097AC0C /* SystemTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemTimer.h; sourceTree = "<group>"; };
 		9AE3550A1AD552400097AC0C /* SystemTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemTimer.m; sourceTree = "<group>"; };
+		9AE3550F1AD55A5F0097AC0C /* TestTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTimer.h; sourceTree = "<group>"; };
+		9AE355101AD55A5F0097AC0C /* TestTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTimer.m; sourceTree = "<group>"; };
+		9AE355121AD55D450097AC0C /* PomodoroTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PomodoroTests.m; sourceTree = "<group>"; };
 		9AFE5D181ACF0EF400E203CA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,8 +204,15 @@
 		9A597C4A1AC32F41002648A6 /* PomodorinTests */ = {
 			isa = PBXGroup;
 			children = (
+				9AA40B731AD56B24004C11DF /* SessionTests.m */,
+				9AA40B711AD565A4004C11DF /* RecordTests.m */,
+				9AA40B6F1AD56299004C11DF /* SummaryTests.m */,
+				9AA40B6D1AD5610A004C11DF /* BreakTests.m */,
+				9AE355121AD55D450097AC0C /* PomodoroTests.m */,
 				9A597C4D1AC32F41002648A6 /* PomodorinTests.m */,
 				9A597C4B1AC32F41002648A6 /* Supporting Files */,
+				9AE3550F1AD55A5F0097AC0C /* TestTimer.h */,
+				9AE355101AD55A5F0097AC0C /* TestTimer.m */,
 			);
 			path = PomodorinTests;
 			sourceTree = "<group>";
@@ -415,7 +435,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AA40B741AD56B24004C11DF /* SessionTests.m in Sources */,
+				9AA40B721AD565A4004C11DF /* RecordTests.m in Sources */,
+				9AE355131AD55D450097AC0C /* PomodoroTests.m in Sources */,
 				9A597C4E1AC32F41002648A6 /* PomodorinTests.m in Sources */,
+				9AE355111AD55A5F0097AC0C /* TestTimer.m in Sources */,
+				9AA40B701AD56299004C11DF /* SummaryTests.m in Sources */,
+				9AA40B6E1AD5610A004C11DF /* BreakTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

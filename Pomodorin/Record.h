@@ -17,5 +17,6 @@
 - (void)add:(Pomodoro *)pomodoro at:(NSDate *)day;
 - (Summary *)summaryAt:(NSDate *)day;
 
+// @deprectated - Remove in next version
 - (NSString *)print;
 @end

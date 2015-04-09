@@ -32,7 +32,7 @@
 
 - (id)initWithConfig:(Config *)config {
   // Expires on X minutes from now
-  NSDate *expiresOn = [[Timer.sharedInstance now] dateByAddingTimeInterval:(config.pomodoroLength * SECONDS_IN_A_MINUTE)];
+  NSDate *expiresOn = [[Timer.sharedInstance now] dateByAddingTimeInterval:(config.pomodoroLength * SECONDS_IN_A_MINUTE / TIMEBOX_LENGTH_FACTOR)];
 
   self = [super initExpiringOn:expiresOn];
 

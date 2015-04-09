@@ -16,12 +16,16 @@
 #define NSLog(...) do {} while (0)
 #endif
 
-// To help do quick tests in debug versions (pomodoro lasts 25 seconds!)
-#ifdef DEBUG
-#define SECONDS_IN_A_MINUTE 1
-#else
+
 #define SECONDS_IN_A_MINUTE 60
-#endif
+
+// To help do quick tests in debug versions
+// This constant defines how many times less should last a timebox
+// that the indicated for the user
+//
+// Warning: it must not be setted to a different than 1 value for
+//          unit tests nor public releases.
+#define TIMEBOX_LENGTH_FACTOR 1
 
 // To allow run the debug app and the published one at the same time
 #ifdef DEBUG

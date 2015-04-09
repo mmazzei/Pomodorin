@@ -15,7 +15,7 @@
 
 - (id)initWithConfig:(Config *)config {
   NSInteger breakMinutes = config.shortBreakLength;
-  NSDate *expiresOn = [[Timer.sharedInstance now] dateByAddingTimeInterval:(breakMinutes * SECONDS_IN_A_MINUTE)];
+  NSDate *expiresOn = [[Timer.sharedInstance now] dateByAddingTimeInterval:(breakMinutes * SECONDS_IN_A_MINUTE / TIMEBOX_LENGTH_FACTOR)];
 
   self = [super initExpiringOn:expiresOn];
 
